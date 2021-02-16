@@ -18,10 +18,7 @@ services:
             - ./pgdb/:/var/lib/postgresql/data
         ports:
             - "5432:5432"
-        environment:
-            POSTGRES_DB: 'colins_db_name'
-            POSTGRES_USER: 'colins_db_user'
-            POSTGRES_PASSWORD: 'f26b8ab553cfd4767216dbc7be7702fcad1b0115a6347e87e'
+        env_file: ./.env
 
     adminer:
         image: adminer

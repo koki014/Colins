@@ -38,6 +38,7 @@ class ProductList(generics.ListAPIView):
             products = products.filter(fit__in = fit).distinct()
         print(categories,colors,sezon, products)
         print(products,'[p')
+    
         return products
 
 

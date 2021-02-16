@@ -33,8 +33,8 @@ def send_mail_to_subscribes():
 
 @shared_task
 def instagram():
-    user_name = '_slymnov_'
-    password = '0703331409Nizi'
+    user_name = 'colins_tr_test'
+    password = '2525244koki'
     api = Client(user_name, password)
     results = api.user_feed('297887086')
     items = results.get('items', [])
