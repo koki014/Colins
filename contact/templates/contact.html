@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+         <div class="main-site-body-container">
+            <div class="columns-cms-container container my-5 common-contactus">
+               <div class="row">
+                  <div class="col-12">
+                     <div class="contact-us-container">
+                        <div class="row">
+                           <div class="col-md-9 offset-md-1">
+                              <h4 class="text-center mb-4">İletişim</h4>
+                              <div class="row">
+                                 <div class="col-12">
+                                    <div class="htmlcontent">
+                                       <h2 class="myAccountPageMainHead">Bize Ulaşın</h2>
+                                       <div class="htmlcontent-body">
+                                          <p><strong>COLIN'S<br /></strong></p>
+                                          <p><strong>ERK PAZARLAMA VE GİYİM SANAYİ TİCARET A.Ş.</strong></p>
+                                          <p><strong>İletişim Bilgilerimiz</strong></p>
+                                          <p><strong>Genel Merkez: </strong>Huzur Mah. Azerbaycan Cad. No:4 Skyland Sarıyer / Istanbul<strong><br /></strong></p>
+                                          <p><strong>E-posta:</strong>&nbsp;Basın İlişkileri info@colins.com.tr</p>
+                                          <p><strong>M&uuml;şteri Destek Hattı:</strong>&nbsp;444 53 26 <strong>(Hafta i&ccedil;i 09:00 - 18:00)</strong></p>
+                                          <p><strong>Online Mağaza İade Depo Adresi </strong>:&nbsp;Osmangazi Mah. 3129. Sokak No:4 -1/2 Kıra&ccedil; - ESENYURT / İSTANBUL<strong><br /></strong></p>
+                                          <p><strong><br /></strong></p>
+                                          <p><strong>İletişim Formu:</strong></p>
+                                          <div><strong><br /></strong></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <form action="" class="contactUS-Form w-100" id="addressform" method="post">
+                                    <div class="col-12">
+                                       {% csrf_token %}
+                             {{ form.non_field_errors }}
+                             <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        {{form.subject}}
+                                       </div>
+                                 </div>
+                                 <div class="col-12">
+                                    <div class="form-group">
+                                        {{form.name}}
+                                       </div>
+                                 </div>
+                             <div class="col-lg-6">
+                                <div class="form-group">
+                                    {{form.email}}
+                                   </div>
+                             </div>
+                             <div class="col-lg-6">
+                                <div class="form-group">
+                                    {{form.tel_number}}
+                                   </div>
+                             </div>
+                             <div class="col-12">
+                                <div class="form-group">
+                                    {{form.sub_subject}}
+                                   </div>
+                             </div>
+                             <div class="col-12">
+                                <div class="form-group">
+                                    {{form.message}}
+                                   </div>
+                             </div>
+                            </div>
+                          
+                        
+                                <ul>
+                                    {% for error in field.errors %}
+                                     <li>{{error}}
+                                     {% endfor %}
+                                  </ul>
+                         
+                                    </div>
+                                      
+                                    <div class="col-12">
+                                       <div class="form-group">
+                                          <head>
+                                             <style>
+                                                #g-recaptcha {
+                                                justify-content: center;
+                                                display: flex;
+                                                }
+                                             </style>
+                                             <title>reCAPTCHA</title>
+                                             <script src="//www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+                                                async defer></script>
+                                          </head>
+                                          <body>
+                                             <div id="g-recaptcha" data-theme="light"></div>
+                                             <script type="text/javascript">
+                                                var onloadCallback = function () {
+                                                
+                                                    var captchaDiv = document.getElementById("g-recaptcha");
+                                                    if (captchaDiv.childElementCount == 0) {
+                                                        var widgetId = window.grecaptcha.render(captchaDiv, {
+                                                            'sitekey': '6LdwQhUTAAAAAFdy0sRX3Kqhn-2bOz_3DkSEdXOO'
+                                                        });
+                                                        window.grecaptcha.reset(widgetId);
+                                                    }
+                                                
+                                                
+                                                    
+                                                
+                                                };
+                                             </script>
+   </body>
+   </div>
+   </div>
+   <div class="col-12">
+   <input type="submit" id="send-email" name="send-email" class="savecustomerinfobutton  btn btn-primary w-100" value="GÖNDER" />
+   </div>
+   </form>            </div>
+   </div>
+   </div>
+   </div>
+   <script>
+      window.onload = function () {
+          AuthValidation("addressform");
+          PhoneMaskValidation('PhoneNumber');
+      
+          var contactUsSubjectsSelector = document.getElementById("ContactUsSubjectId");
+          var contactUsSubSubjectsSelector = document.getElementById("ContactUsSubSubjectId");
+      
+          contactUsSubjectsSelector.addEventListener("change", function () {
+              axios.get("/Common/GetAvalilableSubSubjects",
+              {
+                  params: {
+                      "crmCode": contactUsSubjectsSelector.value
+                  }
+              })
+              .then(function (response) {
+                  contactUsSubSubjectsSelector.innerHTML = "";
+                  response.data.subjectsToBeSend.forEach(function (responseOption, index) {
+                      contactUsSubSubjectsSelector.options.add(new Option(responseOption.Name, responseOption.CrmCode))
+                  });
+              })
+              .catch(function (error) {
+                  console.log(error);
+              });
+          });
+      };
+   </script>
+   </div>
+   </div>
+   </div>
+   <script async src="https://www.colins.com.tr/Themes/Branch/Content/libs/pristine/pristine.js"></script>
+   <script async src="https://www.colins.com.tr/Themes/Branch/Content/libs/imask/imask.js"></script>
+   <script async src="https://www.colins.com.tr/Themes/Branch/Content/js/headerScripts.js"></script>
+   <script>
+      function PhoneMaskValidation(InputId) {
+          var phoneMask = IMask(
+              document.getElementById(InputId), {
+                  mask: '(500) 000-00-00'
+              });
+      }
+      
+      function AuthValidation(formId) {
+          var addressId = formId;
+          var form = document.getElementById(addressId);
+          var defaultConfig = {
+              classTo: 'form-group',
+              errorClass: 'has-error',
+              successClass: 'has-success',
+              errorTextParent: 'form-group',
+              errorTextTag: 'div',
+              errorTextClass: 'text-danger'
+          };
+          var pristine = new Pristine(form, defaultConfig);
+          form.addEventListener('submit', function (e) {
+              e.preventDefault();
+              var valid = pristine.validate();
+              if (valid) {
+                  document.forms[addressId].submit();
+              } else {
+                  //console.log(valid);
+              }
+          });
+      }
+      
+   </script>
+   </div>
+{% endblock %}

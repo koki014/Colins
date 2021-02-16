@@ -1,0 +1,8 @@
+.venv/
+pgdb/
+.idea
+8000
+htmlcov/
+media/
+__pycache__
+

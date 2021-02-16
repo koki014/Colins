@@ -1,0 +1,1024 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="main-site-body-container">
+   <div class="container catalog-category">
+      <div class="row">
+         <div class="overlay-mobile-filter" style="display:none"> </div>
+         <div class="col-md-4 col-sm-12 col-12 clearfix  ">
+         </div>
+         <div class="col-md-12 col-sm-12 col-12 category-list">
+            <nav aria-label="breadcrumb">
+               <ol class="breadcrumb category-breadcrumb pt-0 d-none d-md-flex pb-2">
+                  <li class="breadcrumb-item">
+                     <a href="/"><img class="img-fluid" src="https://www.colins.com.tr//Themes/Branch/Content/images/home-icon.png" alt="Productlist.Homeicon" /></a>
+                  </li>
+                  {% if category.parent_category.parent_category.is_main %}
+                  <li class="breadcrumb-item "><a title="{{category.parent_category.parent_category.title}}" href="{% url 'product:filter_products' category.parent_category.parent_category.id %}">{{category.parent_category.parent_category.title}}</a></li>
+                  {% endif %}
+                  
+                  <li class="breadcrumb-item "><a title="{{category.title}}" href="{% url 'product:filter_products' category.id %}"> {{category.title}}  </a></li>
+               </ol>
+            </nav>
+            <div class="row">
+               <div class="col-md-4 offset-md-4 d-none d-md-inline breadcrumb-container pl-3 pr-0">
+                  <nav aria-label="breadcrumb">
+                     <ol class="breadcrumb">
+                        {% if category.parent_category.parent_category.is_main %}
+                        <li class="breadcrumb-item "><a title="{{category.title}}" href="{% url 'product:filter_products' category.parent_category.parent_category.id %}">{{category.parent_category.parent_category.title}}</a></li>
+                        {% endif %}
+                        <li class="breadcrumb-item "><a title="{{category.title}}" id='categoryId' data-category='{{category.pk}}' href="{% url 'product:filter_products' category.id %}"> {{category.title}}</a></li>
+                     </ol>
+                  </nav>
+                  <div class="product-count-container">
+                     <p class="product-count-text"><span id="product-count">{{product_list.count}}</span>  ürün bulundu</p>
+                  </div>
+               </div>
+               <div class="col-md-4 col-sm-12 col-12">
+                  <div class="desktop-selectbox-container">
+                     <div class="text-right">
+                        <div class="d-inline-block">
+                        <form >
+                           <label>
+                              <span class="font-0 float-left">catalog.label.orderby</span>
+                              <select id="products-orderby" value='all' name='sort' class="d-inline-block selectbox-sorting" onchange="this.form.submit()">
+                                 <option value="" >Sırala</option>
+                                 <option value = 'increase' >Fiyat Artan</option>
+                                 <option value = 'decrease' >Fiyat Azalan</option>
+                                 <option value = 'a-to-z' >İsim A-Z</option>
+                                 <option value = 'z-to-a' >İsim Z-A</option>
+                              </select>
+                           </label>
+                        </form>
+                        </div>
+                        <div class="d-inline-block grid-select-section">
+                           <a href="javascript:;" class="hidden-xs grid-item-choice sorting-grid-3 d-inline-block mx-2 " onclick='ChangeViewMode("grid");' aria-label="three-grid-list"></a>
+                           <a href="javascript:;" class="hidden-xs grid-item-choice sorting-grid-2 d-inline-block grid-item-choice-selected" onclick='ChangeViewMode("list");' aria-label="two-grid-list"></a>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="mobile-selectbox-container">
+                     <div class="mobile-filter" onclick="OpenMobileFilter()">
+                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/mobile-filter.png" class="img-fluid" alt="Productlist.Mobile.Filter" />
+                        <span>FİLTRELE</span>
+                     </div>
+                     <div class="mobile-sorting" onclick="OpenMobileSorting()">
+                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/mobile-sorting.png" class="img-fluid" alt="Productlist.Mobile.Sorting" />
+                        <span>SIRALA</span>
+                     </div>
+                     <div class="mobile-grid">
+                        <div class="d-inline-block">
+                           <a href="javascript:;" class="hidden-xs grid-item-choice sorting-grid-2 d-inline-block mx-2 grid-item-choice-selected" onclick="ChangeViewMode(&quot;list&quot;);" aria-label="two-grid-list"></a>
+                           <a href="javascript:;" class="hidden-xs grid-item-choice sorting-grid-1 d-inline-block " onclick="ChangeViewMode(&quot;one&quot;);" aria-label="one-grid-list"></a>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="mobile-sorting-container">
+                     <div class="mobile-sorting-cancel" onclick="OpenMobileSorting()">
+                        <span> KAPAT</span>
+                     </div>
+                     <div class="sorting-list-container">
+                        <div class="sorting-option">
+                           <a href="?sort=increase">Fiyat Artan</a>
+                        </div>
+                        <div class="sorting-option">
+                           <a href="?sort=decrease">Fiyat Azalan</a>
+                        </div>
+                        <div class="sorting-option">
+                           <a href="?sort=a-to-z">İsim A-Z</a>
+                        </div>
+                        <div class="sorting-option">
+                           <a href="?sort=z-to-a">İsim Z-A</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="mobile-breadcrumb-container">
+                     <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                           <li class="breadcrumb-item">
+                              <a href="/"><img class="img-fluid" src="https://www.colins.com.tr//Themes/Branch/Content/images/home-icon.png" alt="Productlist.Homeicon" /></a>
+                           </li>
+                           <li class="breadcrumb-item "><a title="{{category.title}}" href="/c/erkek-giyim-modelleri-2">{{category.title}}</a></li>
+                           <li class="breadcrumb-item "><a title="{{category.title}}" href="#">{{category.title}}</a></li>
+                        </ol>
+                     </nav>
+                     <div class="product-count-container">
+                        <p class="product-count-text"><span id="product-count-mobile"> 243</span> ürün</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <style>
+                .productFilters{
+                    position: sticky;
+                    left: 0;
+                    top: 7%;
+                }
+            </style>
+            <script src="https://www.colins.com.tr/Themes/Branch/Content/libs/tiny-slider/tiny-slider.js"></script>
+            <link rel="stylesheet" type="text/css" href="https://www.colins.com.tr/Themes/Branch/Content/libs/tiny-slider/tiny-slider.css">
+            <div class="productList clearfix">
+               <div class="clearfix"></div>
+               <div class="module-content product-list clearfix">
+                  <div class="row clearfix d-flex justify-content-end" id = 'filteredProducts'>
+                     <div class="col-md-4 list-view col-sm-12 col-12 desktop-static-filter filter-container-mobile productFilters  ">
+                        <div class="filter-container-mobile-inner">
+                           <div class="mobile-filter-cancel" onclick="OpenMobileFilter()">
+                              <span> KAPAT</span>
+                           </div>
+                           {% if category.related_category.all %}
+                           <!-- <div class="already-filtered-items filter-container choosen_filters_box">
+                              
+                              <div class="filter-header">
+                                 Seçtiğiniz Filtreler
+                              </div>
+
+                               <div class="item mb-2">
+                                  {% for filter_category in category.related_category.all %}
+                                 <a rel="nofollow" class=" remove btn-outline-secondary btn" href="{% url 'product:filter_products' filter_category.id %}">
+                                 {{filter_category.title}}
+                                 <span>(x)</span>
+                                 </a>
+                                 
+                                 {% endfor %}
+                                 
+                              </div>
+                           </div>  -->
+                          
+                           
+                           {% endif %}
+                           <div class="filter-container filter-container-toggle clearfix group-container-Kategori">
+                              <h4 id="toggle-header-34" class="filter-header cursor-pointer " data-spec-attr-id="34" data-spec-attr-name="Kategori" onclick="ToggleMobileMenu(34)">
+                                 <a class="collapsed" data-toggle="collapse" data-target="#34">
+                                 <img class="img-fluid img-filter-plus cursor-pointer filter-caret" src="https://www.colins.com.tr/Themes/Branch/Content/images/filter-plus.png" alt="Productlist.Filterplus" />
+                                 <img class="img-fluid img-filter-minus cursor-pointer filter-caret" src="https://www.colins.com.tr/Themes/Branch/Content/images/filter-minus.png" alt="Productlist.Filterminus" />
+                                 <span class="cursor-pointer">Kategori </span>
+                                 </a>
+                              </h4>
+                              <div class="filter-scrollbar">
+                                 <div id="toggle-34" class="custom-filter-toggle panel-body openCategories">
+                                    <ul class="filter-nav ">
+                                       {% for filter_category in category.related_category.all %}
+                                       <li class="filter-item">
+                                          <input class="filter-item-checkbox" data-category='{{category.pk}}' id="{{filter_category.id}}" value='{{filter_category.id}}' type="checkbox" data-filter="category" onclick='test()' />
+                                          <label for="{{filter_category.id}}"><span ></span>{{filter_category.title}}</label>
+                                       </li>
+                                       {% endfor %}
+                                    
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="filter-container filter-container-toggle clearfix group-container-Sezon">
+                              <h4 id="toggle-header-33" class="filter-header cursor-pointer " data-spec-attr-id="33" data-spec-attr-name="Sezon" onclick="ToggleMobileMenu(33)">
+                                 <a class="collapsed" data-toggle="collapse" data-target="#33">
+                                 <img class="img-fluid img-filter-plus cursor-pointer filter-caret" src="https://www.colins.com.tr/Themes/Branch/Content/images/filter-plus.png" alt="Productlist.Filterplus" />
+                                 <img class="img-fluid img-filter-minus cursor-pointer filter-caret" src="https://www.colins.com.tr/Themes/Branch/Content/images/filter-minus.png" alt="Productlist.Filterminus" />
+                                 <span class="cursor-pointer">Sezon</span>
+                                 </a>
+                                 
+                              </h4>
+                              <div class="filter-scrollbar">
+                                 <div id="toggle-33" class="custom-filter-toggle panel-body openCategories">
+                                    <ul class="filter-nav ">
+                                       {% for product_sezon in product_list %}
+                                       {% ifchanged product_sezon.sezon %}
+                                       <li class="filter-item">
+                                          <input class="filter-item-checkbox" data-spec-id="17315" id="{{product_sezon.sezon}}" data-filter='sezon' value='{{product_sezon.sezon}}' type="checkbox" onclick='test()'  />
+                                          <label for="{{product_sezon.sezon}}" ><span></span>{{product_sezon.sezon}}</label>
+                                       </li>
+                                       {% endifchanged %}
+                                       {% endfor %}
+                                      
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="filter-container filter-container-toggle clearfix group-container-Renk">
+                              <h4 id="toggle-header-1" class="filter-header cursor-pointer " data-spec-attr-id="1" data-spec-attr-name="Renk" onclick="ToggleMobileMenu(1)">
+                                 <a class="collapsed" data-toggle="collapse" data-target="#1">
+                                 <img class="img-fluid img-filter-plus cursor-pointer filter-caret" src="https://www.colins.com.tr/Themes/Branch/Content/images/filter-plus.png" alt="Productlist.Filterplus" />
+                                 <img class="img-fluid img-filter-minus cursor-pointer filter-caret" src="https://www.colins.com.tr/Themes/Branch/Content/images/filter-minus.png" alt="Productlist.Filterminus" />
+                                 <span class="cursor-pointer">Renk</span>
+                                 </a>
+                              </h4>
+                              <div class="filter-scrollbar">
+                                 <div id="toggle-1" class="custom-filter-toggle panel-body openCategories">
+                                    <ul class="filter-nav ">
+                                       {% for product in product_list %}
+                                       {% ifchanged product.color_name %}
+                                       <li class="filter-item">
+                                          <input class="filter-item-checkbox" data-category='{{category.pk}}'  id="{{product.id}}" type="checkbox" value='{{product.color_name}}' data-filter="color" onclick='test()' />
+                                          <label for="{{product.id}}"><span></span>{{product.color_name}}</label>
+                                       </li>
+                                       {% endifchanged %}
+                                       {% endfor %}
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="filter-container filter-container-toggle clearfix group-container-Beden">
+                              <h4 id="toggle-header-2" class="filter-header cursor-pointer " data-spec-attr-id="2" data-spec-attr-name="Beden" onclick="ToggleMobileMenu(2)">
+                                 <a class="collapsed" data-toggle="collapse" data-target="#2">
+                                 <img class="img-fluid img-filter-plus cursor-pointer filter-caret" src="https://www.colins.com.tr/Themes/Branch/Content/images/filter-plus.png" alt="Productlist.Filterplus" />
+                                 <img class="img-fluid img-filter-minus cursor-pointer filter-caret" src="https://www.colins.com.tr/Themes/Branch/Content/images/filter-minus.png" alt="Productlist.Filterminus" />
+                                 <span class="cursor-pointer">Beden</span>
+                                 </a>
+                              </h4>
+                              <div class="filter-scrollbar">
+                                 <div id="toggle-2" class="custom-filter-toggle panel-body openCategories">
+                                    <ul class="filter-nav ">
+                                    {% for product_size in product_list %}
+                                    {% if product_size.size %}
+                                       <li class="filter-item">
+                                          <input class="filter-item-checkbox" data-spec-id="{{product_size.size}}" data-filter='size' value = '{{product_size.size}}' id="{{product_size.size}}" type="checkbox" onclick='test()' />
+                                          <label for="{{product_size.size}}" ><span></span>{{product_size.size}}</label>
+                                       </li>
+                                    {% endif %}
+                                    {% endfor %}
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="filter-container filter-container-toggle clearfix group-container-Fit">
+                              <h4 id="toggle-header-26" class="filter-header cursor-pointer " data-spec-attr-id="26" data-spec-attr-name="Fit" onclick="ToggleMobileMenu(26)" >
+                                 <a class="collapsed" data-toggle="collapse" data-target="#26">
+                                 <img class="img-fluid img-filter-plus cursor-pointer filter-caret" src="https://www.colins.com.tr/Themes/Branch/Content/images/filter-plus.png" alt="Productlist.Filterplus" />
+                                 <img class="img-fluid img-filter-minus cursor-pointer filter-caret" src="https://www.colins.com.tr/Themes/Branch/Content/images/filter-minus.png" alt="Productlist.Filterminus" />
+                                 <span class="cursor-pointer">Fit</span>
+                                 </a>
+                              </h4>
+                              <div class="filter-scrollbar">
+                                 <div id="toggle-26" class="custom-filter-toggle panel-body openCategories">
+                                    <ul class="filter-nav ">
+                                       {% for product_fit in product_list %}
+                                       {% ifchanged product_fit.fit %}
+                                       <li class="filter-item">
+                                          <input class="filter-item-checkbox" data-spec-id="{{product_fit.fit}}" id="{{product_fit.fit}}" type="checkbox" data-filter="fit" value='{{product_fit.fit}}' onclick='test()' />
+                                          <label for="{{product_fit.fit}}"><span></span>{{product_fit.fit}}</label>
+                                       </li>
+                                       {% endifchanged %}
+                                       {% endfor %}
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="filter-container filter-container-toggle" onclick="ToggleMobileMenu('price-filter')">
+                              <!-- <h4 id="toggle-header-price-filter" class="filter-header cursor-pointer">
+                                 <img class="img-fluid img-filter-plus cursor-pointer filter-caret" src="https://www.colins.com.tr/Themes/Branch/Content/images/filter-plus.png" alt="Productlist.Filterplus" />
+                                 <img class="img-fluid img-filter-minus cursor-pointer filter-caret" src="https://www.colins.com.tr/Themes/Branch/Content/images/filter-minus.png" alt="Productlist.Filterminus" />
+                                 <span class="cursor-pointer">FİYAT</span>
+                              </h4> -->
+                              <div id="toggle-price-filter">
+                                 <div class="price-filter filter-nav">
+                                    <div id="sliderRange">
+                                    </div>
+                                    <div class="slider-text">
+                                       <span id="amount"><span class="slider-min">49.00 TL</span><span class="slider-max">120.00 TL</span> </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <script>
+                              window.addEventListener("load", function () {
+                                  var priceSlider = document.getElementById('sliderRange');
+                              
+                                  noUiSlider.create(priceSlider, {
+                                      start: [49.00, 120.00],
+                                      connect: true,
+                                      range: {
+                                          'min': 49.00,
+                                          'max': 120.00,
+                                      }
+                                  });
+                              
+                                  priceSlider.noUiSlider.on("slide", function () {
+                                      var currentValues = document.querySelectorAll("#sliderRange .noUi-origin .noUi-handle");
+                              
+                                      var amount = document.getElementById("amount");
+                                      amount.innerHTML = "<span class='slider-min'>" + currentValues[0].getAttribute("aria-valuenow") + " " + "TL" + "</span><span class='slider-max'>" + currentValues[1].getAttribute("aria-valuenow") + " " + "TL" + "</span>";
+                              
+                                  })
+                              
+                                  priceSlider.noUiSlider.on("set", function () {
+                                       var currentValues = document.querySelectorAll("#sliderRange .noUi-origin .noUi-handle");
+                                      var amount = document.getElementById("amount");
+                                      amount.innerHTML = "<span class='slider-min'>" + currentValues[0].getAttribute("aria-valuenow") + " " + "TL" + "</span><span class='slider-max'>" + currentValues[1].getAttribute("aria-valuenow") + " " + "TL" + "</span>";
+                                  })
+                              
+                                  priceSlider.noUiSlider.on("set", function () {
+                                          var currentValues = document.querySelectorAll("#sliderRange .noUi-origin .noUi-handle");
+                              
+                                          var min = currentValues[0].getAttribute("aria-valuenow");
+                                          var max = currentValues[1].getAttribute("aria-valuenow");
+                                          
+                                          var priceRange = min + "-" + max;
+                              
+                              
+                                          var urlDecoded = decodeURIComponent(("https://www.colins.com.tr/c/erkek-kazak-206?viewmode=list&amp;specs=138&amp;price={0}")).replace("{0}", priceRange).replace('amp;','').replace('amp;','').replace('amp;','').replace('amp;','');
+                              
+                                          SubmitFilter(urlDecoded);
+                              
+                                  })
+                              })
+                              
+                              
+                           </script>
+                           <div class="panel-heading clearfix" style="display: none;">
+                              <!-- <h4 class="panel-title">
+                                 <a href="#collapse" data-toggle="collapse" data-parent="#accordion">
+                                 Fiyat
+                                 <span></span>
+                                 </a>
+                              </h4> -->
+                              <div class="productFilterScrollBar">
+                                 <div class="panel-body" style="display:none">
+                                    <ul class="tinyNav">
+                                       <li class="item">
+                                          <a href="https://www.colins.com.tr/c/erkek-kazak-206?viewmode=list&amp;specs=138&amp;price=-5" data-category="Catalog-Price-Filters" data-label="-5,00 TL">    <span class="PriceRange">5,00 TL</span>'den düşük
+                                          </a>
+                                       </li>
+                                       <li class="item">
+                                          <a href="https://www.colins.com.tr/c/erkek-kazak-206?viewmode=list&amp;specs=138&amp;price=5-10" data-category="Catalog-Price-Filters" data-label="5,00 TL-10,00 TL">    <span class="PriceRange">5,00 TL</span> - <span class="PriceRange">10,00 TL</span>
+                                          </a>
+                                       </li>
+                                       <li class="item">
+                                          <a href="https://www.colins.com.tr/c/erkek-kazak-206?viewmode=list&amp;specs=138&amp;price=10-20" data-category="Catalog-Price-Filters" data-label="10,00 TL-20,00 TL">    <span class="PriceRange">10,00 TL</span> - <span class="PriceRange">20,00 TL</span>
+                                          </a>
+                                       </li>
+                                       <li class="item">
+                                          <a href="https://www.colins.com.tr/c/erkek-kazak-206?viewmode=list&amp;specs=138&amp;price=20-30" data-category="Catalog-Price-Filters" data-label="20,00 TL-30,00 TL">    <span class="PriceRange">20,00 TL</span> - <span class="PriceRange">30,00 TL</span>
+                                          </a>
+                                       </li>
+                                       <li class="item">
+                                          <a href="https://www.colins.com.tr/c/erkek-kazak-206?viewmode=list&amp;specs=138&amp;price=30-40" data-category="Catalog-Price-Filters" data-label="30,00 TL-40,00 TL">    <span class="PriceRange">30,00 TL</span> - <span class="PriceRange">40,00 TL</span>
+                                          </a>
+                                       </li>
+                                       <li class="item">
+                                          <a href="https://www.colins.com.tr/c/erkek-kazak-206?viewmode=list&amp;specs=138&amp;price=40-50" data-category="Catalog-Price-Filters" data-label="40,00 TL-50,00 TL">    <span class="PriceRange">40,00 TL</span> - <span class="PriceRange">50,00 TL</span>
+                                          </a>
+                                       </li>
+                                       <li class="item">
+                                          <a href="https://www.colins.com.tr/c/erkek-kazak-206?viewmode=list&amp;specs=138&amp;price=50-75" data-category="Catalog-Price-Filters" data-label="50,00 TL-75,00 TL">    <span class="PriceRange">50,00 TL</span> - <span class="PriceRange">75,00 TL</span>
+                                          </a>
+                                       </li>
+                                       <li class="item">
+                                          <a href="https://www.colins.com.tr/c/erkek-kazak-206?viewmode=list&amp;specs=138&amp;price=75-100" data-category="Catalog-Price-Filters" data-label="75,00 TL-100,00 TL">    <span class="PriceRange">75,00 TL</span> - <span class="PriceRange">100,00 TL</span>
+                                          </a>
+                                       </li>
+                                       <li class="item">
+                                          <a href="https://www.colins.com.tr/c/erkek-kazak-206?viewmode=list&amp;specs=138&amp;price=100-125" data-category="Catalog-Price-Filters" data-label="100,00 TL-125,00 TL">    <span class="PriceRange">100,00 TL</span> - <span class="PriceRange">125,00 TL</span>
+                                          </a>
+                                       </li>
+                                       <li class="item">
+                                          <a href="https://www.colins.com.tr/c/erkek-kazak-206?viewmode=list&amp;specs=138&amp;price=125-150" data-category="Catalog-Price-Filters" data-label="125,00 TL-150,00 TL">    <span class="PriceRange">125,00 TL</span> - <span class="PriceRange">150,00 TL</span>
+                                          </a>
+                                       </li>
+                                       <li class="item">
+                                          <a href="https://www.colins.com.tr/c/erkek-kazak-206?viewmode=list&amp;specs=138&amp;price=150-200" data-category="Catalog-Price-Filters" data-label="150,00 TL-200,00 TL">    <span class="PriceRange">150,00 TL</span> - <span class="PriceRange">200,00 TL</span>
+                                          </a>
+                                       </li>
+                                       <li class="item">
+                                          <a href="https://www.colins.com.tr/c/erkek-kazak-206?viewmode=list&amp;specs=138&amp;price=200-" data-category="Catalog-Price-Filters" data-label="200,00 TL-">    <span class="PriceRange">200,00 TL</span>'den yüksek
+                                          </a>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="mobile-filter-submit-button">
+                           <button class="btn btn-primary w-100" onclick="SubmitFilterMobile()">FİLTRELE</button>
+                        </div>
+                     </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-8 col-mobile-list  ">
+                        <div class="row productItems">
+                        {% for product in product_list %}
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-6 col-mobile-list ">
+                                <div class="productbox clearfix list-item " data-discount="39,9100">
+                                <div class="product-image-container productImage">
+                                    <div  class="favourite-button-container" onclick="ProductSubscription('24482')">
+                                        <div id="fav-24482" class="favourite-button-unsubscribed"></div>
+                                    </div>
+                                    <a class="lazy-image product-name track-link" title="{{product.title}}" href="{% url 'product:product' product.id %}">
+                                    <img src="{{product.rel_id.all.image.url}}" alt="{{product.title}}" class="w-100 lazy"  data-secondary-image-src='{{product.rel_id.all.0.image.url}}'  data-original="{{product.rel_id.all.0.image.url}}">
+                                    </a>
+                                </div>
+                                <div class="productWrapper product-text-container" >
+                                    <a class="product-name track-link" title="Regular Fit Erkek Baskılı Kırmızı Sweatshirt" href="/p/regular-fit-erkek-baskili-kirmizi-sweatshirt-24476" data-id="24476">{{product.title}}</a>
+                                    <div class="product-price-content">
+                                        <!-- <span class="product-old-price">119,90 TL</span> -->
+                                        <span class="product-new-price">{{product.price}}</span>
+                                    </div>
+                                    
+                                </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                  </div>
+                  <div class="pagerBottomContent">
+                     <div class="pager pager-bottom pager-top cfix"><span>1</span>&nbsp;<a href="/cis/erkek-kazak-206?viewmode=list&amp;specs=138&amp;pagenumber=2">2</a>&nbsp;<a href="/cis/erkek-kazak-206?viewmode=list&amp;specs=138&amp;pagenumber=3">3</a>&nbsp;<a href="/cis/erkek-kazak-206?viewmode=list&amp;specs=138&amp;pagenumber=4">4</a>&nbsp;<a href="/cis/erkek-kazak-206?viewmode=list&amp;specs=138&amp;pagenumber=5">5</a>&nbsp;<a href="/cis/erkek-kazak-206?viewmode=list&amp;specs=138&amp;pagenumber=2">Sonraki</a>&nbsp;...&nbsp;<a href="/cis/erkek-kazak-206?viewmode=list&amp;specs=138&amp;pagenumber=11">Son</a></div>
+                  </div>
+               </div>
+               <div class="loading" style="visibility: hidden; padding: 20px; text-align: center;">
+                  <img src="https://www.colins.com.tr/Themes/Branch/Content/images/loader.gif" alt="Productlist.Loader" />
+               </div>
+               <!-- begin Back to Top button -->
+               <a class="back_to_top" title="Back To Top">&uarr;</a>
+               <!-- end Back to Top button -->
+            </div>
+            <script>
+               /* begin begin Back to Top button  */
+               function trackScroll() {
+                   var scrolled = window.pageYOffset;
+                   var coords = document.documentElement.clientHeight;
+               
+                   if (scrolled > coords) {
+                       goTopBtn.classList.add('back_to_top-show');
+                   }
+                   if (scrolled < coords) {
+                       goTopBtn.classList.remove('back_to_top-show');
+                   }
+               }
+               
+               function backToTop() {
+                   if (window.pageYOffset > 0) {
+                       window.scrollBy(0, -80);
+                       setTimeout(backToTop, 0);
+                   }
+               }
+               
+               var goTopBtn = document.querySelector('.back_to_top');
+               
+               window.addEventListener("load", function () {
+                   if (window.innerWidth > 768) {
+                       window.addEventListener('scroll', trackScroll);
+                       goTopBtn.addEventListener('click', backToTop);
+                   }
+               });
+               /* end begin Back to Top button  */
+            </script>
+         </div>
+      </div>
+   </div>
+   <div class="category-banner-container">
+      <div class="container">
+         <!-- <h1 class="plistBannerHead">
+            <span>Erkek</span>
+            <span>Kazak</span>
+         </h1> -->
+         <span class="plistBannerButton">Banner Button</span>
+         <strong class="plistBannerRibbon">Banner Ribbon</strong>
+         <div class="plistBannerDesc clearfix">
+            <div class="category-summary-container one-line">
+               <!-- <h2>Erkek Kazak Modelleri</h2> -->
+               <!-- <p>Kış mevsimine renk katacak, sizi kışın kasvetinden uzaklaştıracak&nbsp;<span>en trend erkek kazak modeller</span>i şimdi &ccedil;ok uygun fiyatlarla colins.com.tr'de! Sezonun en hit ana ve ara renkleriyle canlılık kazandırılmış kazak modelleri,&nbsp;<span>v yaka, yuvarlak yaka, d&uuml;ğmeli</span>&nbsp;ve&nbsp;<span>boğazlı</span>&nbsp;se&ccedil;enekleriyle se&ccedil;iminizi bekliyor. Soğuk kış g&uuml;nlerinde ofiste, şık bir toplantıda ya da hafta sonu gezmelerinde rahatlıkla tercih edebileceğiniz kazaklar, regular ve slim fit modelleri ile de farklı tarzlara hitap ediyor.&nbsp;<span>Jean, klasik pantolon</span>&nbsp;ya da<span>&nbsp;kanvas pantolonla</span>&nbsp;rahatlıkla kombinleyebileceğiniz kazağınızı&nbsp;<span><span>spor</span>&nbsp;ayakkabı, bot, loafer</span>&nbsp;ya da&nbsp;<span>sneakers</span>&nbsp;ile tamamlayabilirsiniz. Ge&ccedil;en sezonun en g&ouml;zde modellerinden enine &ccedil;izgili kazaklar bu sezon da &ouml;ne &ccedil;ıkarken, ince detaylar ve minimal desenlerle ta&ccedil;landırılmış kazaklar retro tarzı seven erkeklere hitap ediyor. &Ccedil;abasız şıklığı &ccedil;ok uygun fiyatlara yakalamak isteyenlerdenseniz, colins.com.tr'de sezonun en g&ouml;zde ve en tarz<strong>&nbsp;erkek kazak modelleri</strong>&nbsp;ile sizi baş başa bırakıyoruz. Unutmayın; kış aylarında da trend g&ouml;r&uuml;nmek sizin elinizde!</p> -->
+            </div>
+            <span class="continue-read">
+            </span>
+         </div>
+         <div id="predic-category"></div>
+      </div>
+   </div>
+   <link rel="stylesheet" type="text/css" href="https://www.colins.com.tr/Themes/Branch/Content/libs/vanillajs-lazy/lazy.css">
+   <link rel="stylesheet" type="text/css" href="https://www.colins.com.tr/Themes/Branch/Content/libs/tingle/tingle.css">
+   <link rel="stylesheet" type="text/css" href="https://www.colins.com.tr/Themes/Branch/Content/libs/nouislider/nouislider.min.css" />
+   <link rel="stylesheet" type="text/css" href="https://www.colins.com.tr/Themes/Branch/Content/css/product-list.css" />
+   <script async src="https://www.colins.com.tr/Themes/Branch/Content/libs/nouislider/nouislider.min.js"></script>
+   <script async src="https://www.colins.com.tr/Themes/Branch/Content/libs/tingle/tingle.js"></script>
+   <script async src="https://www.colins.com.tr/Themes/Branch/Content/libs/vanillajs-lazy/lazy.js"></script>
+   <script>
+      function updateQueryStringParameter(uri, key, value) {
+          var re = new RegExp("([?|&])" + key + "=.*?(&|$)", "i");
+          separator = uri.indexOf('?') !== -1 ? "&" : "?";
+          if (uri.match(re)) {
+              return uri.replace(re, '$1' + key + "=" + value + '$2');
+          }
+          else {
+              return uri + separator + key + "=" + value;
+          }
+      }
+      
+      function ChangeViewMode(mode) {
+          var url = updateQueryStringParameter(window.location.toString(), 'viewmode', mode);
+          window.location.href = url;
+      }
+      
+      function setLocation(url) {
+          window.location.href = url;
+      }
+      
+      var getOffsetTop = function (elem) {
+          var location = 0;
+          if (elem.offsetParent) {
+              while (elem) {
+                  location += elem.offsetTop;
+                  elem = elem.offsetParent;
+              }
+          }
+          return location >= 0 ? location : 0;
+      };
+      
+      function getParameterByName(name, url) {
+          if (!url) url = window.location.href;
+          url = url.toLowerCase(); // This is just to avoid case sensitiveness
+          name = name.replace(/[\[\]]/g, "\\$&");
+          var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+              results = regex.exec(url);
+          if (!results) return null;
+          if (!results[2]) return '';
+          return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+      
+      function updateUrlParameter(url, param, value) {
+          var regex = new RegExp('(' + param + '=)[^\&]+');
+          return url.replace(regex, '$1' + value);
+      }
+      
+      function getElementOffset(element) {
+          var de = document.documentElement;
+          var box = element.getBoundingClientRect();
+          var top = box.top + window.pageYOffset - de.clientTop;
+          var left = box.left + window.pageXOffset - de.clientLeft;
+          return { top: top, left: left };
+      }
+      
+      function isScrolledIntoView(elem) {
+          var docViewTop = window.scrollY;
+          var docViewBottom = docViewTop + window.innerHeight + window.innerHeight;
+          if (elem) {
+              var elemTop = getElementOffset(elem).top;
+              var elemBottom = elemTop + elem.scrollHeight;
+      
+              return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+          }
+      
+          return false;
+      }
+      
+      
+      var isScroll = true;
+      
+      var pagerBottomContent = document.querySelector('.pagerBottomContent'); //pager class
+      var productList = document.querySelector('.product-list .row'); //product list container, the results will appended into this.
+      var scrollActivatorElement = document.querySelector('.loading'); //classa kadar indiğinde scroll et.
+      var overlayFilter = document.querySelector(".overlay-mobile-filter");
+      var filterContainer = document.querySelector(".filter-container-mobile");
+      var sortingContainer = document.querySelector(".mobile-sorting-container");
+      document.addEventListener('DOMContentLoaded', function () {
+      
+          window.onscroll = function () {
+              if (isScroll) {
+                  if (isScrolledIntoView(scrollActivatorElement)) {
+                      isScroll = false;
+                      pagerBottomContent = document.querySelector(".pagerBottomContent");
+                      getProducts();
+                  }
+              }
+          }
+      
+          ProductCount();
+      
+          if (overlayFilter != null && filterContainer != null) {
+              overlayFilter.addEventListener("click", function () {
+                  filterContainer.classList.remove("filter-container-mobile--opened");
+                  sortingContainer.classList.remove("mobile-sorting-container--opened");
+                  document.querySelector("body").style.overflowY = "auto";
+                  overlayFilter.style.display = "none";
+              })
+          }
+      
+      
+      });
+      
+      function OpenMobileFilter() {
+          if (window.innerWidth < 767) {
+              if (filterContainer.classList.contains("filter-container-mobile--opened")) {
+                  filterContainer.classList.remove("filter-container-mobile--opened");
+                  document.querySelector("body").style.overflowY = "auto";
+                  overlayFilter.style.display = "none";
+              }
+              else {
+                  filterContainer.classList.add("filter-container-mobile--opened")
+                  document.querySelector("body").style.overflowY = "hidden";
+                  overlayFilter.style.display = "block";
+              }
+      
+          }
+      }
+      
+      function OpenMobileSorting() {
+          if (window.innerWidth < 767) {
+              var sortingContainer = document.querySelector(".mobile-sorting-container");
+              if (sortingContainer.classList.contains("mobile-sorting-container--opened")) {
+                  sortingContainer.classList.remove("mobile-sorting-container--opened");
+                  document.querySelector("body").style.overflowY = "auto";
+                  overlayFilter.style.display = "none";
+              } else {
+                  sortingContainer.classList.add("mobile-sorting-container--opened");
+                  document.querySelector("body").style.overflowY = "hidden";
+                  overlayFilter.style.display = "block";
+              }
+          }
+      }
+      
+      
+      function SubmitFilter(url) {
+          if (window.innerWidth > 767) {
+              window.location.href = url;
+          }
+      }
+      
+      function SubmitFilterMobile() {
+          if (window.innerWidth < 768) {
+              var currentValues = document.querySelectorAll("#sliderRange .noUi-origin .noUi-handle");
+              var min = currentValues[0].getAttribute("aria-valuenow");
+              var max = currentValues[1].getAttribute("aria-valuenow");
+      
+              var url = window.location.href;
+      
+              if (url.indexOf("specs") > -1) {
+                  url = url.split("?specs=")[0];
+                  url += "?specs=";
+      
+                  document.querySelectorAll(".filter-item-checkbox:checked").forEach(function (elem) {
+                      url += elem.getAttribute("data-spec-id") + ",";
+                  })
+      
+              } else {
+                  url += "?specs=";
+                  document.querySelectorAll(".filter-item-checkbox:checked").forEach(function (elem) {
+                      url += elem.getAttribute("data-spec-id") + ",";
+                  })
+      
+              }
+              url = url.slice(0, -1) + "&price=" + min + "-" + max;
+      
+              var viewmodeUrl = window.location.href;
+              if (viewmodeUrl.indexOf("&viewmode") > -1) {
+                  var viewMode = viewmodeUrl.split("&viewmode=")[1]
+                  viewmodeUrl = url.split("&viewmode=")[0];
+                  viewmodeUrl += "&viewmode=";
+                  viewmodeUrl += viewMode;
+                  url = viewmodeUrl;
+              }
+      
+              window.location.href = url;
+      
+          }
+      }
+      
+      function ToggleMobileMenu(toggleId) {
+          var toggleMenu = document.querySelector("#toggle-" + toggleId + "  .filter-nav");
+          var toggleHeader = document.querySelector("#toggle-header-" + toggleId);
+      
+      
+          if (toggleHeader.classList.contains("filter-header--selected")) {
+              toggleHeader.classList.remove("filter-header--selected");
+      
+          }
+          else {
+              toggleHeader.classList.add("filter-header--selected");
+          }
+      
+      
+          if (toggleMenu.classList.contains("filter-nav--selected"))
+              toggleMenu.classList.remove("filter-nav--selected");
+          else
+              toggleMenu.classList.add("filter-nav--selected");
+      
+      }
+      
+      function ProductCount() {
+          //var productCount = 0;
+          //var products = document.querySelectorAll(".productbox");
+          //if (products)
+          //    productCount = products.length;
+      
+          //var productCountSpan = document.getElementById("product-count");
+          //var productCountMobile = document.getElementById("product-count-mobile");
+          //productCountSpan.innerText = productCount;
+          //productCountMobile.innerText = productCount;
+      }
+      
+      function fade(element) {
+          var op = 1;  // initial opacity
+          var timer = setInterval(function () {
+              if (op <= 0.1) {
+                  clearInterval(timer);
+                  element.style.display = 'none';
+              }
+              element.style.opacity = op;
+              element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+              op -= op * 0.1;
+          }, 50);
+      }
+      
+      function scondaryImageFunc() {
+          if (window.innerWidth > 980) {
+      
+              document.querySelectorAll(".productImage .product-name img").forEach(function (el) { el.mouseenter = function (e) { e.preventDefault() } })
+              document.querySelectorAll(".productImage .product-name img").forEach(function (el) { el.mouseleave = function (e) { e.preventDefault() } })
+      
+      
+              document.querySelectorAll(".productImage .product-name img").forEach(function (el) {
+                  el.mouseenter = function (e) {
+                      var defaultImageSrc, secondaryImageSrc;
+                      defaultImageSrc = this.getAttribute("src");
+                      secondaryImageSrc = this.getAttribute("data-secondary-image-src");
+      
+                      this.setAttribute("data-default-image-src", defaultImageSrc);
+                      if (defaultImageSrc != secondaryImageSrc) {
+                          this.setAttribute("src", secondaryImageSrc)
+                          fade(this);
+                      }
+                  }
+              })
+      
+      
+          }
+      
+          if (window.innerWidth > 980) {
+              document.querySelectorAll(".productImage .product-name img").forEach(function (el) {
+                  el.mouseleave = function () {
+                      this.setAttribute("src", this.getAttribute("data-default-image-src"));
+                      fade(this);
+                  }
+              })
+          }
+      }
+      
+      var tempUrl;
+      function getProducts() {
+      
+          //find next link on the pagination
+          var pagerBottomElement = document.querySelector('.pagerBottomContent .pager-bottom span');
+          if (pagerBottomElement != undefined && pagerBottomElement != null) {
+              if (pagerBottomElement.nextElementSibling != undefined && pagerBottomElement.nextElementSibling != null) {
+                  var nextElem = pagerBottomElement.nextElementSibling;
+      
+                  //if there is a link, load products
+                  if (nextElem.innerText != "0") {
+                      var url = nextElem.href;
+      
+                      var pagerBottomContentToCache = document.querySelector(".pagerBottomContent").innerHTML;
+      
+                      if (sessionStorage.getItem("pagerBottomContentToCache")) {
+                          sessionStorage.removeItem("pagerBottomContentToCache");
+                          sessionStorage.setItem("pagerBottomContentToCache", pagerBottomContentToCache);
+                      }
+                      else {
+                          sessionStorage.setItem("pagerBottomContentToCache", pagerBottomContentToCache);
+                      }
+      
+                      pagerBottomContent.remove();
+      
+                      // yeni ürünler sayfası ise default olarak infinite scroll için specs=4 parametresi ekliyoruz
+                      if (window.location.pathname.indexOf('/yeni-urunler') > -1) {
+                          var specParamValue = getParameterByName('specs', url);
+                          // if url does not contain specs as parameter, add new specs parameter
+                          if (specParamValue == null) {
+                              if (url.indexOf('?') > -1) {
+                                  url += '&specs=4';
+                              }
+                              else {
+                                  url += '?specs=4';
+                              }
+                          }
+                          else {// if url contains specs parameter
+                              var splitted = specParamValue.split(',');
+                              if (splitted.indexOf('4') < 0) {
+                                  specParamValue += ',4';
+                                  url = updateUrlParameter(url, 'specs', specParamValue);
+                              }
+                          }
+                      }
+                      if (tempUrl == url) {
+                          return false;
+                      }
+      
+                      var xhr = new XMLHttpRequest();
+                      xhr.onloadstart = function () {
+                          if (!!document.querySelector('.pagerBottomContent')) {
+                              document.querySelector('.pagerBottomContent').style.visibility = "hidden";
+                          }
+                          
+                          document.querySelector('.loading').style.visibility = "visible";
+                      }
+      
+                      xhr.onreadystatechange = function () {
+                          if (xhr.readyState === 4) {
+                              if (xhr.status >= 200 && xhr.status < 300) {
+                                  //success
+                                  productList.insertAdjacentHTML("beforeend", xhr.response);
+                                  isScroll = true;
+                                  document.querySelector('.pagerBottomContent').style.visibility = "visible";
+                                  document.querySelector('.loading').style.visibility = "hidden";
+                                  //equalHeight(document.querySelectorAll(".productWrapper"));
+                                  scondaryImageFunc();
+      
+                                  if (productListToCache != undefined && productListToCache != null) {
+                                      if (productListToCache.innerHTML != undefined && productListToCache != null) {
+      
+                                          var productListToCache = document.querySelector(".product-list row").innerHTML;
+      
+                                          if (sessionStorage.getItem("productListToCache")) {
+                                              sessionStorage.removeItem("productListToCache");
+                                              sessionStorage.setItem("productListToCache", productListToCache);
+                                          }
+                                          else {
+                                              sessionStorage.setItem("productListToCache", productListToCache);
+                                          }
+                                      }
+                                  }
+                                  ProductCount();
+                                  initializeLazy();
+                              } else {
+                                  //error
+                                  isScroll = true;
+                                  ProductCount();
+                              }
+                          }
+      
+                      }
+      
+                      xhr.open("GET", url);
+                      xhr.send();
+                  }
+              }
+          }
+          tempUrl = url;
+      }
+      
+      function openProductModal(link) {
+          var productModal = new tingle.modal({
+              onClose: function () {
+                  productModal.destroy();
+              }
+          })
+          productModal.setContent("<iframe width='820' height='470' src='" + link + "'></iframe >");
+          productModal.open();
+      }
+      
+      function ProductSubscription(productId) {
+          var class1 = "favourite-button-subscribed";
+          var class2 = "favourite-button-unsubscribed";
+      
+          var favButton = document.getElementById("fav-" + productId);
+      
+      
+          if (favButton.classList.contains("favourite-button-subscribed")) {
+              var type = "True";
+              favButton.classList.remove(class1);
+              favButton.classList.add(class2);
+          } else {
+              var type = "False";
+              favButton.classList.remove(class2);
+              favButton.classList.add(class1);
+          }
+          
+          var favoriteUrl = "";
+          type == "False" ? favoriteUrl = "/Catalog/AddToFavouriteList" : favoriteUrl = "/Catalog/DeleteFromFavouriteList";
+      
+          axios.post(favoriteUrl, { productVariantId: productId })
+              .then(function (response) {
+                  if (response.status) {
+                      if (response.data.errorCode === 1) {
+                          window.location = "/login?returnUrl=%2Fc%2Ferkek-kazak-206"
+                      }
+                      else {
+                          alert("İşlem Başarıyla Tamamlandı");
+                      }
+                  }
+                  else {
+                      alert("Favorites.ErrorHappened")
+                  }
+              })
+              .catch(function (error) {
+                  console.log(error)
+              });
+      }
+      
+      window.addEventListener("load", function () {
+          if (sessionStorage.getItem("productListToCache")) {
+              var productListFromCache = sessionStorage.getItem("productListToCache");
+              sessionStorage.removeItem("productListToCache");
+          }
+          if (sessionStorage.getItem("pagerBottomContentToCache")) {
+              var pagerBottomContentToCache = sessionStorage.getItem("pagerBottomContentToCache");
+              sessionStorage.removeItem("pagerBottomContentToCache");
+          }
+          if (sessionStorage.getItem("fromBackButton")) {
+              var fromBackButton = sessionStorage.getItem("fromBackButton");
+              sessionStorage.removeItem("fromBackButton");
+          }
+      
+          if (sessionStorage.getItem("productIdToCache")) {
+              var productIdFromCache = sessionStorage.getItem("productIdToCache");
+              sessionStorage.removeItem("productIdToCache");
+      
+              const targetNode = document.getElementById('p-' + productIdFromCache);
+              if (targetNode !== null && typeof (targetNode) !== "undefined") {
+                  const config = { attributes: true, childList: true, subtree: true };
+      
+                  const callback = function (mutationsList, observer) {
+                      for (let mutation of mutationsList) {
+                          if (mutation.type === 'childList') {
+                              observer.disconnect();
+                              document.getElementById('p-' + productIdFromCache).scrollIntoView({ behavior: 'instant', block: 'center' });
+                          }
+                      }
+                  };
+                  const observer = new MutationObserver(callback);
+                  observer.observe(targetNode, config);
+              }
+          }
+      
+          if (sessionStorage.getItem("locationHref")) {
+              var locationHref = sessionStorage.getItem("locationHref");
+              sessionStorage.removeItem("locationHref");
+          }
+      
+          if (fromBackButton && locationHref == location.href) {
+              history.scrollRestoration = 'manual';
+              if (productListFromCache) {
+                  var productList = document.querySelectorAll(".product-list .row")[0];
+      
+                  //while (productList.firstChild) {
+                  //    productList.removeChild(productList.firstChild);
+                  //}
+                  productList.innerHTML = productListFromCache;
+      
+                  //$(".product-list .row").empty();
+                  //$(".product-list .row").append(productListFromCache);
+      
+              }
+              if (pagerBottomContentToCache) {
+      
+                  var pagerBottomContent = document.querySelectorAll(".pagerBottomContent")[0];
+      
+                  //while (pagerBottomContent.firstChild) {
+                  //    pagerBottomContent.removeChild(pagerBottomContent.firstChild);
+                  //}
+                  pagerBottomContent.innerHTML = pagerBottomContentToCache;
+      
+                  //$(".pagerBottomContent").empty();
+                  //$(".pagerBottomContent").append(pagerBottomContentToCache);
+      
+              }
+      
+              if (productIdFromCache) {
+                  document.getElementById('p-' + productIdFromCache).scrollIntoView({ behavior: 'instant', block: 'center' });
+                  //$('#p-' + productIdFromCache).get(0).scrollIntoView();
+              }
+      
+              if (document.getElementsByClassName("pagerBottomContent")[0].querySelectorAll(".pager-bottom span")[0].nextElementSibling == undefined) {
+                  document.getElementsByClassName("pagerBottomContent")[0].parentNode.removeChild(document.getElementsByClassName("pagerBottomContent")[0]);
+              }
+      
+              //if ($('.pagerBottomContent').find('.pager-bottom span').next().length == 0) {
+              //    $(".pagerBottomContent").remove();
+              //}
+          }
+      
+          document.body.addEventListener('click', function (event) {
+      
+              if (event.target.classList.contains('track-link') || event.target.parentElement.classList.contains('track-link')) {
+                  var productIdToCache = event.target.getAttribute("data-id") != null ? event.target.getAttribute("data-id") : event.target.parentElement.getAttribute("data-id");
+                  sessionStorage.setItem("productIdToCache", productIdToCache);
+      
+                  if (sessionStorage.getItem("pagerBottomContentToCache") && document.getElementsByClassName("pagerBottomContent")[0].length == 0) {
+                      var pagerBottomContentToCache = sessionStorage.getItem("pagerBottomContentToCache");
+                  }
+                  else {
+                      var pagerBottomContentToCache = document.getElementsByClassName("pagerBottomContent")[0].innerHTML;
+                      sessionStorage.setItem("pagerBottomContentToCache", pagerBottomContentToCache);
+                  }
+      
+                  if (sessionStorage.getItem("productListToCache")) {
+                      var productListToCache = sessionStorage.getItem("productListToCache");
+                  }
+                  else {
+                      var productListToCache = document.querySelectorAll(".product-list .row")[0].innerHTML;
+                      sessionStorage.setItem("productListToCache", productListToCache);
+                  }
+      
+                  if (sessionStorage.getItem("locationHref")) {
+                      var locationHref = sessionStorage.getItem("locationHref");
+                  }
+                  else {
+                      var locationHref = location.href;
+                      sessionStorage.setItem("locationHref", locationHref);
+                  }
+      
+                  sessionStorage.setItem("fromBackButton", true);
+              }
+          })
+      });
+      
+      
+   </script>
+</div>
+{% endblock %}

@@ -1,0 +1,471 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-04 19:03+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: account/admin.py:18
+msgid "Personal info"
+msgstr ""
+
+#: account/admin.py:19
+msgid "Permissions"
+msgstr ""
+
+#: account/admin.py:21
+msgid "Important dates"
+msgstr ""
+
+#: account/forms.py:95
+msgid "Password"
+msgstr ""
+
+#: account/models.py:10
+msgid "username"
+msgstr ""
+
+#: account/models.py:15
+msgid "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr ""
+
+#: account/models.py:18
+msgid "A user with that username already exists."
+msgstr ""
+
+#: account/models.py:22
+msgid "Male"
+msgstr ""
+
+#: account/models.py:23
+msgid "Female"
+msgstr ""
+
+#: account/models.py:24
+msgid "email address"
+msgstr ""
+
+#: account/models.py:27
+msgid "number"
+msgstr ""
+
+#: account/models.py:28
+msgid "data"
+msgstr ""
+
+#: account/models.py:29
+msgid "gender :"
+msgstr ""
+
+#: account/models.py:30
+msgid ""
+"Tanıtım ve bilgilendirme amacıyla gönderilecek SMS ve E-posta iletilerini "
+"kabul ediyorum."
+msgstr ""
+
+#: account/models.py:31
+msgid "Üyelik sözleşmesini okudum ve kabul ediyorum"
+msgstr ""
+
+#: account/templates/email/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+
+#: account/templates/email/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: account/templates/email/password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr ""
+
+#: account/templates/email/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: account/templates/email/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: blog/models.py:10
+msgid "novu"
+msgstr ""
+
+#: blog/models.py:18
+msgid "category-blog"
+msgstr ""
+
+#: blog/models.py:19
+msgid "kategory"
+msgstr "category"
+
+#: blog/models.py:20
+msgid "kategoriler"
+msgstr ""
+
+#: blog/models.py:29 blog/models.py:49 index/models.py:6 index/models.py:34
+#: index/models.py:59 index/models.py:105 product/models.py:116
+msgid "sekil"
+msgstr ""
+
+#: blog/models.py:37
+msgid "slayder-blog"
+msgstr ""
+
+#: blog/models.py:38 index/models.py:44
+msgid "karusel"
+msgstr ""
+
+#: blog/models.py:39 index/models.py:45
+msgid "karuseller"
+msgstr ""
+
+#: blog/models.py:48
+msgid "adi"
+msgstr ""
+
+#: blog/models.py:50
+msgid "aciqlama"
+msgstr ""
+
+#: blog/models.py:55
+msgid "Category"
+msgstr ""
+
+#: blog/models.py:62 blog/models.py:63
+msgid "blog"
+msgstr ""
+
+#: blog/models.py:64
+msgid "bloglar"
+msgstr ""
+
+#: contact/models.py:8
+msgid "Konu"
+msgstr ""
+
+#: contact/models.py:9
+msgid "Bilgi"
+msgstr ""
+
+#: contact/models.py:10
+msgid "Oneri"
+msgstr ""
+
+#: contact/models.py:11
+msgid "Sikayet"
+msgstr ""
+
+#: contact/models.py:12
+msgid "Talep"
+msgstr ""
+
+#: contact/models.py:13
+msgid "Tesekkur"
+msgstr ""
+
+#: contact/models.py:16
+msgid "Alt Konu"
+msgstr ""
+
+#: contact/models.py:18 contact/models.py:22
+msgid "subject"
+msgstr ""
+
+#: contact/models.py:19
+msgid "name"
+msgstr ""
+
+#: contact/models.py:20
+msgid "email"
+msgstr ""
+
+#: contact/models.py:21
+msgid "telefon"
+msgstr ""
+
+#: contact/models.py:23
+msgid "message"
+msgstr ""
+
+#: contact/models.py:31 contact/models.py:32
+msgid "contact"
+msgstr ""
+
+#: contact/models.py:33
+msgid "contacts"
+msgstr ""
+
+#: index/models.py:7
+msgid "white"
+msgstr ""
+
+#: index/models.py:8
+msgid "red"
+msgstr ""
+
+#: index/models.py:18
+msgid "sales"
+msgstr ""
+
+#: index/models.py:19
+msgid "Satis"
+msgstr ""
+
+#: index/models.py:20
+msgid "Satis ozellikleri"
+msgstr ""
+
+#: index/models.py:30 index/models.py:55 index/models.py:101
+#: product/models.py:86
+msgid "product"
+msgstr ""
+
+#: index/models.py:31 index/models.py:56 index/models.py:102
+#: product/models.py:37
+msgid "category"
+msgstr ""
+
+#: index/models.py:35 index/models.py:60 index/models.py:106
+msgid "sorgu: "
+msgstr ""
+
+#: index/models.py:43
+msgid "slayder"
+msgstr ""
+
+#: index/models.py:68
+msgid "discovery"
+msgstr ""
+
+#: index/models.py:69
+msgid "kesf"
+msgstr ""
+
+#: index/models.py:70
+msgid "kesf et"
+msgstr ""
+
+#: index/models.py:114
+msgid "company"
+msgstr ""
+
+#: index/models.py:115
+msgid "kanpanya"
+msgstr ""
+
+#: index/models.py:116
+msgid "kanpanyalar"
+msgstr ""
+
+#: meny/models.py:6 meny/models.py:9 meny/models.py:10 product/models.py:19
+#: product/models.py:63
+msgid "title"
+msgstr ""
+
+#: meny/models.py:11
+msgid "elave"
+msgstr ""
+
+#: product/models.py:10
+msgid "up"
+msgstr ""
+
+#: product/models.py:11
+msgid "down"
+msgstr ""
+
+#: product/models.py:12
+msgid "middle"
+msgstr ""
+
+#: product/models.py:13
+msgid "none"
+msgstr ""
+
+#: product/models.py:20 product/models.py:65
+msgid "Image: "
+msgstr ""
+
+#: product/models.py:21
+msgid "yasil reng"
+msgstr ""
+
+#: product/models.py:22 product/models.py:101
+msgid "esas"
+msgstr ""
+
+#: product/models.py:23
+msgid "orta"
+msgstr ""
+
+#: product/models.py:24 product/models.py:72
+msgid "slug"
+msgstr ""
+
+#: product/models.py:38
+msgid "kategoriya"
+msgstr ""
+
+#: product/models.py:39
+msgid "kategoriyalar"
+msgstr ""
+
+#: product/models.py:64
+msgid "price"
+msgstr ""
+
+#: product/models.py:66
+msgid "size: "
+msgstr ""
+
+#: product/models.py:67
+msgid "color"
+msgstr ""
+
+#: product/models.py:68
+msgid "urun kodu"
+msgstr ""
+
+#: product/models.py:69
+msgid "urun iceriyi"
+msgstr ""
+
+#: product/models.py:70
+msgid "fit"
+msgstr ""
+
+#: product/models.py:71
+msgid "sezon"
+msgstr ""
+
+#: product/models.py:87
+msgid "mehsul"
+msgstr ""
+
+#: product/models.py:88
+msgid "mehsullar"
+msgstr ""
+
+#: product/models.py:102
+msgid "Image"
+msgstr ""
+
+#: product/models.py:106
+msgid "Product"
+msgstr ""
+
+#: product/models.py:115
+msgid "image"
+msgstr ""
+
+#: product/models.py:117
+msgid "sekiller"
+msgstr ""
+
+#: product/templates/base.html:1156
+msgid "Hakkımızda"
+msgstr "About Us"
+
+#: product/templates/base.html:1161
+msgid "Kariyer"
+msgstr "Career"
+
+#: product/templates/base.html:1166
+msgid "Bilgi Toplumu Hizmetleri"
+msgstr "Information society services"
+
+#: product/templates/base.html:1171
+msgid "Entegre Yönetim Sistemi Politikası"
+msgstr "Integrated Management System Policy"
+
+#: product/templates/base.html:1176
+msgid "Gizlilik ve Güvenlik"
+msgstr "Privacy and Security"
+
+#: product/templates/base.html:1194
+msgid "M&Uuml;ŞTERİ HİZMETLERİ"
+msgstr "CUSTOMER SERVICES"
+
+#: product/templates/base.html:1203
+msgid "İade ve Değişimler"
+msgstr "Returns and Exchanges"
+
+#: product/templates/base.html:1208
+msgid "Üyelik İşlemleri"
+msgstr "Membership Process"
+
+#: product/templates/base.html:1213
+msgid "Ödemeler"
+msgstr "Payments"
+
+#: product/templates/base.html:1218
+msgid "Sipariş İşlemleri"
+msgstr "Order Process"
+
+#: product/templates/base.html:1223
+msgid "Kargo ve Teslimat"
+msgstr "Cargo and Delivery"
+
+#: product/templates/base.html:1228
+msgid "Puan Sorgulama"
+msgstr "Score Inquiry"
+
+#: product/templates/base.html:1233
+msgid "Bize Ulaşın"
+msgstr "Contact Us"
+
+#: product/templates/base.html:1238
+msgid "Açık Mağazalarımız"
+msgstr "Our open stores"
+
+#: product/templates/base.html:1252
+msgid "Kampanyalardan haberdar olmak için e-bültenimize kaydol"
+msgstr "Sign Up for Newsletter"
+
+#: product/templates/base.html:1264
+msgid "Lütfen bekleyiniz..."
+msgstr ""
+
+#: product/templates/base.html:1270
+msgid "Gizlilik sözleşmesini"
+msgstr "I have read and accept "
+
+#: product/templates/base.html:1270
+msgid "okudum, kabul ediyorum"
+msgstr "the privacy policy"
+
+#: product/templates/base.html:1287 product/templates/base.html:1299
+msgid "2020 COLIN"
+msgstr ""
+
+#: product/templates/base.html:1320
+msgid ""
+"Alışveriş deneyiminizi iyileştirmek için yasal düzenlemelere uygun çerezler "
+"(cookies) kullanıyoruz. Detaylı bilgiy"
+msgstr ""
+
+#: product/templates/base.html:1324
+msgid "Gizlilik ve Çerez Politikası"
+msgstr ""
+
+#: product/templates/base.html:1328
+msgid "sayfamızdan erişebilirsiniz."
+msgstr ""

@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="main-site-body-container">
+
+
+
+    <div class="columns-auth-container my-5 customer customer-loginregister">
+
+
+
+
+
+        <div class="container login-page-container">
+            <div class="row">
+                <div class="border-right col-12 col-lg-6 col-md-6 mb-4 mb-5 pr-lg-7 pr-md-4 login-left-section">
+                    <h4 class="title-letter-space mb-4 text-center text-lg-left text-md-left">GİRİŞ YAP</h4>
+                    <form action="" autocomplete="off" class=""  method="post">
+                        <div class="form-group position-relative">
+                            {% csrf_token %}
+                            {{ form.non_field_errors }}
+
+                            {{form.username}}
+                            {{form.username.errors}}
+                            <div class="placeholder">
+                                <span class="placeholder-icon d-inline-block">
+                                    <img src="https://www.colins.com.tr/Themes/Branch/Content/images/mail.png"
+                                        alt="mail-icon" />
+                                </span>
+                                <span class="placolder-label d-inline-block"> E-posta adresi<span
+                                        class="placeholder-required"> *</span></span>
+                            </div>
+                            <span class="field-validation-valid" data-valmsg-for="LoginModel.Email"
+                                data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="form-group position-relative">
+                            <label class="font-0" for="LoginModel_Password">Şifre</label>
+                            <div class="position-absolute cursor-pointer show-password" id="showPassword">
+                                <img class="enabled-password"
+                                    src="https://www.colins.com.tr/Themes/Branch/Content/images/eye-icon-enabled.png"
+                                    alt="account.showpassword" />
+                                <img class="disabled-password"
+                                    src="https://www.colins.com.tr/Themes/Branch/Content/images/eye-icon-disabled.png"
+                                    alt="account.hidepassword" />
+                            </div>
+                            {{form.password}}
+                            {{form.password.errors}}
+                            <div class="placeholder">
+                                <span class="placeholder-icon d-inline-block">
+                                    <img alt="password-icon"
+                                        src="https://www.colins.com.tr/Themes/Branch/Content/images/lock.png" />
+                                </span>
+                                <span class="placolder-label d-inline-block"> Şifre<span class="placeholder-required">
+                                        *</span></span>
+                            </div>
+                            <span class="field-validation-valid" data-valmsg-for="LoginModel.Password"
+                                data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" id="LoginModel_RememberMe"
+                                        name="LoginModel.RememberMe" type="checkbox" value="true" /><input
+                                        name="LoginModel.RememberMe" type="hidden" value="false" />
+                                    <label class="custom-control-label" for="LoginModel_RememberMe">BENİ HATIRLA</label>
+                                </div>
+                            </div>
+                            <div class="col-6 text-right">
+                                <a class="btn-link text-danger after-right-arrow forgot-password-label"
+                                    href="{% url 'account:reset_password' %}">ŞİFREMİ UNUTTUM</a>
+                            </div>
+                            <div class="col-12 mt-4 login-btn-container">
+                                <input type="hidden" name="login" />
+                                <input class="btn btn-primary w-100" type="submit" value="GİRİŞ YAP" />
+                            </div>
+                            <div class="col-12 mt-4">
+
+
+                                <a id="fblogin" class="facebook-btn btn w-100"
+                                    href="{% url 'social:begin' 'facebook' %}">
+                                    <span class="float-left facebook-btn-icon">
+                                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/facebook-fill.png"
+                                            alt="facebook-icon" />
+                                    </span>
+                                    <span class="w-100">
+                                        FACEBOOK ile Üye Ol
+                                    </span>
+                                </a>
+
+
+                            </div>
+                        </div>
+                        <div>
+
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-12 col-lg-6 col-md-6 pl-lg-7 pl-md-4 text-center text-lg-left text-md-left">
+                    <h4 class="title-letter-space mb-4">ÜYE DEĞİL MİSİN?</h4>
+                    <p class="mb-4 description">
+                        Üye değil misin? Hemen üye ol ve fırsatlardan yararlan.
+                    </p>
+                    <a href="{% url 'account:register' %}" class="btn btn-outline-secondary w-100">ÜYE OL</a>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            window.onload = function () {
+                //these functions are in _customerPanel.js
+                AuthValidation("address-form");
+                ShowPasswordClick("LoginModel_Password", "showPassword", "show-password-eye", '#showPassword');
+                RememberMe();
+            };
+        </script>
+
+
+
+    </div>
+
+
+    <script async src="https://www.colins.com.tr/Themes/Branch/Content/libs/pristine/pristine.js"></script>
+    <script async src="https://www.colins.com.tr/Themes/Branch/Content/libs/imask/imask.js"></script>
+    <script async src="https://www.colins.com.tr/Themes/Branch/Content/js/_validation.js"></script>
+    <script async src="https://www.colins.com.tr/Themes/Branch/Content/js/_auth.js"></script>
+    <script async src="https://www.colins.com.tr/Themes/Branch/Content/js/bootstrap-native.js"></script>
+
+
+
+</div>
+
+
+
+{% endblock %}

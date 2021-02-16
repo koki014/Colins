@@ -1,0 +1,5 @@
+pgdb/
+.venv/
+*.pyc
+htmlcov/
+__pycache__

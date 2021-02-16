@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main-site-body-container">
+
+
+
+    <div class="columns-auth-container my-5 customer customer-passwordrecoveryconfirm">
+
+
+
+
+
+
+
+        <div class="container password-confirm-recovery-container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <h4 class="title-letter-space text-center mb-4">ŞİFRE SIFIRLAMA  </h4>
+                    <div class="alert alert-success">
+                        Şifreniz başarıyla değiştirilmiştir.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            document.getElementById("NewPassword").addEventListener("keyup", function () {
+                if (document.getElementById("NewPassword").value !== document.getElementById("ConfirmNewPassword").value) {
+                    document.querySelector(".password-error-container").classList.remove("d-none");
+                    document.getElementById("set-password").setAttribute("disabled", true);
+                }
+                else {
+                    document.querySelector(".password-error-container").classList.add("d-none");
+                    document.getElementById("set-password").removeAttribute("disabled");
+                }
+            });
+
+            document.getElementById("ConfirmNewPassword").addEventListener("keyup", function () {
+                if (document.getElementById("ConfirmNewPassword").value !== document.getElementById("NewPassword").value) {
+                    document.querySelector(".password-error-container").classList.remove("d-none");
+                    document.getElementById("set-password").setAttribute("disabled", true);
+                }
+                else {
+                    document.querySelector(".password-error-container").classList.add("d-none");
+                    document.getElementById("set-password").removeAttribute("disabled");
+                }
+            });
+
+            window.onload = function () {
+                //AuthValidation("passwordRecoveryConfirmForm");
+                ShowPasswordClick("NewPassword", "showPassword", "show-password-eye", '#showPassword');
+                ShowPasswordClick("ConfirmNewPassword", "showPasswordConfirm", "show-password-eye", '#showPasswordConfirm');
+            };
+        </script>
+
+    </div>
+
+
+    <script async src="https://www.colins.com.tr/Themes/Branch/Content/libs/pristine/pristine.js"></script>
+    <script async src="https://www.colins.com.tr/Themes/Branch/Content/libs/imask/imask.js"></script>
+    <script async src="https://www.colins.com.tr/Themes/Branch/Content/js/_validation.js"></script>
+    <script async src="https://www.colins.com.tr/Themes/Branch/Content/js/_auth.js"></script>
+    <script async src="https://www.colins.com.tr/Themes/Branch/Content/js/bootstrap-native.js"></script>
+
+
+
+</div>
+
+{% endblock %}

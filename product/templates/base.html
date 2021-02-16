@@ -1,0 +1,1610 @@
+
+
+<!DOCTYPE html>
+
+
+{% load static custom_tags  %}
+{% load i18n %}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="TR" data-machine-name="IISSERVER-02">
+<head>
+    <title>Colin's Online Alışveriş</title>
+    <meta name="description" content="Colin's ürünlerini online mağazamızdan güvenle satın alabilirsiniz. Tüm alışverişlerinizde 125 TL üzerinde kargo bedava! Ücretsiz iade!" />
+    <meta name="keywords" content="colins, colins jeans, colins giyim, colins online, colins online alışveriş, colins erkek giyim, colins kadın giyim, jean, colins elbise, colins kot, colins bayan giyim,  kadın giyim, alışveriş, trend, moda, stil, erkek giyim, kot modelleri, jean modelleri, online alışveriş, ayakkabı, çanta, terlik, şort, pantolon, mont, tişört, tshirt, sweatshirt, denim, aksesuar, etek, bluz" />
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="google-site-verification" content="viZTPZ9kJcULEAw6q-CEXQRWPOJFc_9o8RG8dI74hGY" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0" />
+
+    
+    <link rel="shortcut icon" href="https://www.colins.com.tr/Themes/Branch/Content/images/logo.png" type="png" />
+
+
+<link href="https://www.colins.com.tr/Content/bundled.min.css?v=20201118100816" rel="stylesheet" type="text/css" />
+
+
+
+
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'slick/slick.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'slick/slick-theme.css' %}" type="text/css" />
+<link href="{% static 'css/header.css' %}" rel="stylesheet" />
+<link href="{% static 'css/custom.css' %}" rel="stylesheet" />
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+<script>
+
+
+    if (typeof invTagManagerParams == "undefined") {
+        invTagManagerParams = {}
+    } else {
+        //
+    }
+    $(document).ready(function() { 
+         $("yesil a:nth-child(2n-1)").css("color",  
+                                    "red"); 
+        });
+</script>
+    <!-- head css scripts assets -->
+
+
+
+
+        <script>window.insider_object = {};</script>
+    <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-KPKZWX');</script> <!-- End Google Tag Manager -->
+
+
+        
+    <!-- head bottom css scripts assets -->
+    
+    <!-- head bottom css scripts assets -->
+
+</head>
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPKZWX" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    
+
+    <div class="main-site-container">
+        <!-- header top message-->
+        <div class="d-none d-sm-block header-top-message text-center">
+    <!-- header top message item-->
+    {% get_sale as salesfeatures_list %}
+    {% for sales in salesfeatures_list %}
+    <div class="header-top-item d-inline-block">
+        <div class="header-top-item-icon d-inline-block">
+            <img src="{{sales.image.url}}" alt="cargo-icon" />
+        </div>
+        <div class="header-top-white-text d-inline-block">
+            {{ sales.white_text }} <!--100 TL ve Üzeri-->
+        </div>
+        <div class="header-top-red-text d-inline-block">
+            {{ sales.red_text }} <!--Ücretsiz Kargo-->
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+        <!-- header top message-->
+        <header>
+            <div class="container header-custom-container mobile-container-position-relative">
+                <div class="row">
+                    <!-- mobile menu button -->
+                    <div class="col-3 d-xl-none">
+                        <button type="button" class="navbar-toggle" id="mobile-menu-toggle" aria-label="mobile-button">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- mobile menu button -->
+                    <!-- mobile menu overlay -->
+                    <div class="overlay-mobile-menu d-none"> </div>
+                    <!-- mobile menu overlay -->
+                    <!-- main menu  -->
+                    <div class="col-6 col-lg-6 col-md-6 col-xl-8 menu-container p-0 pl-lg-3 position-static">
+                        
+
+
+
+<div class="row">
+
+    <div class="col-12 col-xl-2 pl-0 pr-0 text-center text-xl-left">
+            <div class="logo-container">
+                <a href="{% url 'home:home' %}" title="Ana Sayfa" class="track-link logo-wrapper" data-category="Top" data-label="Logo">
+                    <img src="https://www.colins.com.tr/Themes/Branch/Content/images/logo.png" alt="Colin's Online Alışveriş" /> 
+                </a>
+            </div>
+    </div>
+    <div class="col-4 col-lg-10 col-xl-1 col-xl-10 d-xl-block mobile-menu-container position-static">
+        
+
+<div id="defaultmenu" class="d-none d-lg-flex position-static">
+    <ul class="m-0 p-0">
+
+        <!-- first level menus -->
+        {% get_navbar as meny_list %}
+        {% for meny in meny_list%}
+            <li class="menu-wrapper float-left list-style-none">
+                <h2 class="newfont">
+        
+                    {% if meny.is_main %}
+                   
+                        <a href="{% url 'product:filter_products' meny.id %}" {% if meny.is_active_class  %}  style="color: #1cfc91 !important;" {% endif %}>
+                            {{meny.title}} <i class="menu-arrow"></i>
+                        </a>
+                        
+                    {% endif %}
+
+                </h2>
+                    <!-- second level menus -->
+                    <div class="customDropDown d-none">
+                        <div class="container">
+                            
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="sub-dropdown-menu sub-menu-4 w-100">
+                                        <div class="row">
+                                                {% for sub_meny in meny.category.all %}
+                                                
+                                                <div class="first-sub list-style-none col-{% if meny.category.all.count == 2 %}6{% else %}3 {% endif %}">
+                                                
+                                                   
+                                                        {% if sub_meny.is_sub %}
+                                                            <a href="{% url 'product:filter_products' sub_meny.id %}" class="sub-dropdown-title" >{{sub_meny.title}}  </a> 
+                                                        <!-- third level menus -->
+                                                        <div class="sub-sub-dropdown-menu sub-dropdown-menu-list"   >
+                                                            
+                                                            <ul class="split{{meny.category.all.count}} p-0">
+                                                                {% for child_meny in sub_meny.category.all %}
+                                                                    <li class="sub-sub-menu-item list-style-none">
+                                                                        <a class="sub-sub-menu-title" data-image-url="" href="{% url 'product:filter_products' child_meny.id %}">{{child_meny.title}}</a>
+                                                                    </li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        </div>
+                                                        {% endif %}
+                                                   
+                                                
+                                                        
+                                                </div>
+                                                 {% endfor %}
+                                                
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="menu-right-column w-100">
+
+                                            {% if meny.image %}
+                                            <img class="menuImage w-100" src="{{ meny.image.url }}" alt="menu image">
+                                            <img class="subMenuImage d-none" alt="sub menu image" />
+                                            {% endif %}
+                                            
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+            </li>
+        {% endfor%}
+           
+
+          
+
+           
+
+            
+
+            
+    </ul>
+</div>
+
+<div id="defaultmenu-mobile">
+    <ul class="mobile-menu-wrapper clearfix">
+            <!-- first level menus -->
+                <li class="menu-main-li list-style-none position-relative w-100 float-left">
+                    <div class="mobile-menu-image-wrapper first-menu-back-button" style="background: url('')">
+                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                        <span>JEAN</span>
+                    </div>
+
+                    <div class="main-menu-dot" style="background: url('https://img-colinstr.mncdn.com/Assets/Branch/Thumbs/135342.jpeg') no-repeat; background-size: cover; background-position: center"> </div>
+                        <button type="button" class="mobile-menu-acordeon p-0 d-lg-none" aria-label="JEAN"></button>
+
+                    <a id="menu_main_a_0" class="menu-main-a" href="/c/tum-jean-modelleri-385">JEAN</a>
+                        <ul id="menu_main_sub_0" class="menu-main-sub p-0 d-none clearfix">
+                                <li class="menu-main-li-two list-style-none position-relative">
+                                    <div class="mobile-menu-image-wrapper second-menu-back-button" style="background: url('')">
+                                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                                        <span>KADIN</span>
+                                    </div>
+                                        <button type="button" class="mobile-sub-menu-acordeon p-0 d-lg-none"></button>
+                                    <a href="/c/tum-jean-modelleri-385?specs=74" class="menu-main-two-a">KADIN</a>
+                                        <ul class="menu-main-sub-two m-0 p-0 d-none">
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/jean-121?specs=96">Jean Pantolon</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/tum-urunler-1?specs=98,74,17267">Jean Şort</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/jean-121?specs=176">Jean Etek</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/jean-121?specs=151">Jean Elbise</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/jean-121?specs=17266">Jean G&ouml;mlek</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/jean-121?specs=141">Jean Ceket</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="menu-main-li-two list-style-none position-relative">
+                                    <div class="mobile-menu-image-wrapper second-menu-back-button" style="background: url('')">
+                                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                                        <span>KADIN FİTLER</span>
+                                    </div>
+                                        <button type="button" class="mobile-sub-menu-acordeon p-0 d-lg-none"></button>
+                                    <a href="/c/jean-121" class="menu-main-two-a">KADIN FİTLER</a>
+                                        <ul class="menu-main-sub-two m-0 p-0 d-none">
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/tum-urunler-1?specs=98,74,196,17388,96">Slim Fit</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/tum-urunler-1?specs=98,74,96,198,17386">Regular Fİt </a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/jean-121?specs=96,17387">Mom Fİt</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/jean-121?specs=96,17387,198">Normal Kesim</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="menu-main-li-two list-style-none position-relative">
+                                    <div class="mobile-menu-image-wrapper second-menu-back-button" style="background: url('')">
+                                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                                        <span>ERKEK</span>
+                                    </div>
+                                        <button type="button" class="mobile-sub-menu-acordeon p-0 d-lg-none"></button>
+                                    <a href="/c/tum-jean-modelleri-385?specs=67" class="menu-main-two-a">ERKEK</a>
+                                        <ul class="menu-main-sub-two m-0 p-0 d-none">
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-jeann-56?specs=96">Jean Pantolon</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/tum-urunler-1?specs=98,17267,67">Jean Şort</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-jean-56?specs=17265">Jean G&ouml;mlek K.Kol</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-jean-56?specs=17266">Jean G&ouml;mlek U.Kol</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-jean-56?specs=141">Jean Ceket</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="menu-main-li-two list-style-none position-relative">
+                                    <div class="mobile-menu-image-wrapper second-menu-back-button" style="background: url('')">
+                                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                                        <span>ERKEK FİTLER</span>
+                                    </div>
+                                        <button type="button" class="mobile-sub-menu-acordeon p-0 d-lg-none"></button>
+                                    <a href="/c/man-jean-56?specs=17327,196,198,208,577,664,727" class="menu-main-two-a">ERKEK FİTLER</a>
+                                        <ul class="menu-main-sub-two m-0 p-0 d-none">
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-jean-56?specs=96,17386,198,208">Normal Kesim</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-jean-56?specs=196,17388">Slim Fit</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-jean-56?specs=96,17327">Carrot Fit</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                        </ul>
+                </li>
+                <li class="menu-main-li list-style-none position-relative w-100 float-left">
+                    <div class="mobile-menu-image-wrapper first-menu-back-button" style="background: url('')">
+                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                        <span>KADIN</span>
+                    </div>
+
+                    <div class="main-menu-dot" style="background: url('https://img-colinstr.mncdn.com/Assets/Branch/Thumbs/135343.jpeg') no-repeat; background-size: cover; background-position: center"> </div>
+                        <button type="button" class="mobile-menu-acordeon p-0 d-lg-none" aria-label="KADIN"></button>
+
+                    <a id="menu_main_a_1" class="menu-main-a" href="/c/kadin-giyim-57">KADIN</a>
+                        <ul id="menu_main_sub_1" class="menu-main-sub p-0 d-none clearfix">
+                                <li class="menu-main-li-two list-style-none position-relative">
+                                    <div class="mobile-menu-image-wrapper second-menu-back-button" style="background: url('')">
+                                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                                        <span>KIYAFETLER</span>
+                                    </div>
+                                        <button type="button" class="mobile-sub-menu-acordeon p-0 d-lg-none"></button>
+                                    <a href="/c/kadin-giyim-57" class="menu-main-two-a">KIYAFETLER</a>
+                                        <ul class="menu-main-sub-two m-0 p-0 d-none">
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-tisort-629">Tiş&ouml;rt</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-elbise-212">Elbise</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-etek-239">Etek</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-atlet-195">Atlet</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-deniz-sortu-modelleri-240">Deniz Şortu</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-pantolon-209">Pantolon</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-şort-635">Şort</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-gomlek-460">G&ouml;mlek</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-esofman-alti-234">Eşofman Altı</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/sweatshirt-189">Sweatshirt</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-yelek-232">Yelek</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-ceket-211">Ceket</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-hirka-181">Hırka</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-mont-185">Mont</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-kazak-199">Kazak</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/woman-outwear-259">Kaban</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="menu-main-li-two list-style-none position-relative">
+                                    <div class="mobile-menu-image-wrapper second-menu-back-button" style="background: url('')">
+                                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                                        <span>AKSESUARLAR</span>
+                                    </div>
+                                        <button type="button" class="mobile-sub-menu-acordeon p-0 d-lg-none"></button>
+                                    <a href="/c/kadin-aksesuar-120" class="menu-main-two-a">AKSESUARLAR</a>
+                                        <ul class="menu-main-sub-two m-0 p-0 d-none">
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/gozluk-218">G&ouml;zl&uuml;k</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-sapka-246">Şapka</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/ic-giyim-527">İ&ccedil; Giyim</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/terlik-colins-217">Terlik</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/saat-216">Saat</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-bijuteri-491">Bijuteri</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-corap-161">&Ccedil;orap</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/canta-159">&Ccedil;anta</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-cuzdan-158">C&uuml;zdan</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-sal-238">Şal</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-kemer-157">Kemer</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-eldiven-256">Eldiven</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-bere-254">Bere</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-atki-255">Atkı</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                        </ul>
+                </li>
+                <li class="menu-main-li list-style-none position-relative w-100 float-left">
+                    <div class="mobile-menu-image-wrapper first-menu-back-button" style="background: url('')">
+                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                        <span>ERKEK</span>
+                    </div>
+
+                    <div class="main-menu-dot" style="background: url('https://img-colinstr.mncdn.com/Assets/Branch/Thumbs/135347.jpeg') no-repeat; background-size: cover; background-position: center"> </div>
+                        <button type="button" class="mobile-menu-acordeon p-0 d-lg-none" aria-label="ERKEK"></button>
+
+                    <a id="menu_main_a_2" class="menu-main-a" href="/c/erkek-giyim-2">ERKEK</a>
+                        <ul id="menu_main_sub_2" class="menu-main-sub p-0 d-none clearfix">
+                                <li class="menu-main-li-two list-style-none position-relative">
+                                    <div class="mobile-menu-image-wrapper second-menu-back-button" style="background: url('')">
+                                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                                        <span>KIYAFETLER</span>
+                                    </div>
+                                        <button type="button" class="mobile-sub-menu-acordeon p-0 d-lg-none"></button>
+                                    <a href="/c/erkek-giyim-2" class="menu-main-two-a">KIYAFETLER</a>
+                                        <ul class="menu-main-sub-two m-0 p-0 d-none">
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-pantolon-201">Pantolon</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-tisort-630">Tiş&ouml;rt</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-gomlek-462">G&ouml;mlek</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-şort-634">Şort</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-atlet-227">Atlet</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-deniz-sortu-modelleri-228">Deniz Şortu</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-esofman-alti-180">Eşofman Altı</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-sweatshirt-177">Sweatshirt</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-yelek-260">Yelek</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-ceket-245">Ceket</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-hirka-169">Hırka</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-kaban-250">Kaban</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-kazak-206">Kazak</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek_mont-243">Mont</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="menu-main-li-two list-style-none position-relative">
+                                    <div class="mobile-menu-image-wrapper second-menu-back-button" style="background: url('')">
+                                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                                        <span>AKSESUAR</span>
+                                    </div>
+                                        <button type="button" class="mobile-sub-menu-acordeon p-0 d-lg-none"></button>
+                                    <a href="/c/erkek-aksesuar-colins-55" class="menu-main-two-a">AKSESUAR</a>
+                                        <ul class="menu-main-sub-two m-0 p-0 d-none">
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-gozluk-215">G&ouml;zl&uuml;k</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/man-underwear-167">İ&ccedil; Giyim</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-şapka-233">Şapka</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-terlik-214">Terlik</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-kemer-168">Kemer</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-saat-213">Saat</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-canta-163">&Ccedil;anta</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-cuzdan-162">C&uuml;zdan</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-corap-164">&Ccedil;orap</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-sal-166">Şal</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-bere-257">Bere</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-eldiven-258">Eldiven</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-atki-262">Atkı</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                        </ul>
+                </li>
+                <li class="menu-main-li list-style-none position-relative w-100 float-left">
+                    <div class="mobile-menu-image-wrapper first-menu-back-button" style="background: url('')">
+                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                        <span>YENİ SEZON</span>
+                    </div>
+
+                    <div class="main-menu-dot" style="background: url('https://img-colinstr.mncdn.com/Assets/Branch/Thumbs/135344.jpeg') no-repeat; background-size: cover; background-position: center"> </div>
+                        <button type="button" class="mobile-menu-acordeon p-0 d-lg-none" aria-label="YENİ SEZON"></button>
+
+                    <a id="menu_main_a_3" class="menu-main-a" href="/yeni-urunler?specs=4">YENİ SEZON</a>
+                        <ul id="menu_main_sub_3" class="menu-main-sub p-0 d-none clearfix">
+                                <li class="menu-main-li-two list-style-none position-relative">
+                                    <div class="mobile-menu-image-wrapper second-menu-back-button" style="background: url('')">
+                                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                                        <span>ERKEK</span>
+                                    </div>
+                                    <a href="/new-products?specs=4,67" class="menu-main-two-a">ERKEK</a>
+                                </li>
+                                <li class="menu-main-li-two list-style-none position-relative">
+                                    <div class="mobile-menu-image-wrapper second-menu-back-button" style="background: url('')">
+                                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                                        <span>KADIN</span>
+                                    </div>
+                                    <a href="/new-products?specs=4,74" class="menu-main-two-a">KADIN</a>
+                                </li>
+                        </ul>
+                </li>
+                <li class="menu-main-li list-style-none position-relative w-100 float-left">
+                    <div class="mobile-menu-image-wrapper first-menu-back-button" style="background: url('')">
+                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                        <span><span style="color: #1cfc91;">OUTLET</span></span>
+                    </div>
+
+                    <div class="main-menu-dot" style="background: url('https://img-colinstr.mncdn.com/Assets/Branch/Thumbs/131190.jpeg') no-repeat; background-size: cover; background-position: center"> </div>
+                        <button type="button" class="mobile-menu-acordeon p-0 d-lg-none" aria-label="&lt;span style=&quot;color: #1cfc91;&quot;&gt;OUTLET&lt;/span&gt;"></button>
+
+                    <a id="menu_main_a_4" class="menu-main-a" href="/c/all-products-1?specs=231"><span style="color: #1cfc91;">OUTLET</span></a>
+                        <ul id="menu_main_sub_4" class="menu-main-sub p-0 d-none clearfix">
+                                <li class="menu-main-li-two list-style-none position-relative">
+                                    <div class="mobile-menu-image-wrapper second-menu-back-button" style="background: url('')">
+                                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                                        <span>KADIN</span>
+                                    </div>
+                                        <button type="button" class="mobile-sub-menu-acordeon p-0 d-lg-none"></button>
+                                    <a href="/c/kadin-outlet-colins-269" class="menu-main-two-a">KADIN</a>
+                                        <ul class="menu-main-sub-two m-0 p-0 d-none">
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=151">Elbise</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=17265">G&ouml;mlek K.Kol</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=17266">G&ouml;mlek U.Kol</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=17267">Şort</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=192">Deniz Şortu</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=96">Pantolon</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=17264">Tshirt K. Kol</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=134">Atlet</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=17268">Tshirt U.Kol</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=141">Ceket</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=138">Sweatshirt</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=195">Yelek</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=142">Mont</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=135">Kazak</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=139">Hırka</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=140">Eşofman Altı</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=159">&Ccedil;anta</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=326">Kaban</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=76">&Ccedil;orap</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=158">C&uuml;zdan</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=349">Eldiven</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=176">Etek</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=72">G&ouml;zl&uuml;k</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=175">İ&ccedil; Giyim</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=153">Kemer</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=91">Saat</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=152">Şal</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=174">Şapka</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=247">Terlik</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=347">Atkı</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=331">Bere</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/kadin-outlet-colins-269?specs=650">Bijuteri</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="menu-main-li-two list-style-none position-relative">
+                                    <div class="mobile-menu-image-wrapper second-menu-back-button" style="background: url('')">
+                                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                                        <span>ERKEK</span>
+                                    </div>
+                                        <button type="button" class="mobile-sub-menu-acordeon p-0 d-lg-none"></button>
+                                    <a href="/c/erkek-outlet-267" class="menu-main-two-a">ERKEK</a>
+                                        <ul class="menu-main-sub-two m-0 p-0 d-none">
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=96">Pantolon</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=141">Ceket</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=142">Mont</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=195">Yelek</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=195">Atlet</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=138">Sweatshirt</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=132">Polo K.Kol</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=135">Kazak</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=139">Hırka</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=140">Eşofman Altı</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=159">&Ccedil;anta</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=326">Kaban</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=76">&Ccedil;orap</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=158">C&uuml;zdan</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=192">Deniz Şortu</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=349">Eldiven</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=72">G&ouml;zl&uuml;k</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=175">İ&ccedil; Giyim</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=153">Kemer</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=91">Saat</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=152">Şal</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=174">Şapka</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=247">Terlik</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=347">Atkı</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=331">Bere</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=17264">Tshirt K.Kol</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=650">Bijuteri</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=17265">G&ouml;mlek K.Kol</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=755">Kapri</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=17266">G&ouml;mlek U.Kol</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=17267">Şort</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=17268">Tshirt U.Kol</a>
+                                                </li>
+                                                <li class="menu-main-li-three list-style-none">
+                                                    <a href="/c/erkek-outlet-267?specs=17269">Mont PU</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                        </ul>
+                </li>
+                <li class="menu-main-li list-style-none position-relative w-100 float-left">
+                    <div class="mobile-menu-image-wrapper first-menu-back-button" style="background: url('')">
+                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/arrow-left-circle.png" />
+                        <span>JEAN GUIDE</span>
+                    </div>
+
+                    <div class="main-menu-dot" style="background: url('https://img-colinstr.mncdn.com/Assets/Branch/Thumbs/131192.jpeg') no-repeat; background-size: cover; background-position: center"> </div>
+
+                    <a id="menu_main_a_5" class="menu-main-a" href="/common/jeanguide">JEAN GUIDE</a>
+                </li>
+    </ul>
+
+
+
+</div>
+    </div>
+
+</div>
+                    </div>
+                    <!-- main menu  -->
+                    <!-- search box  -->
+                    <div class="col-2 col-md-2 col-xl-2 d-none d-xl-block searchbox-container">
+<div class="row">
+    <div class="col-md-12 col-lg-12">
+        <div class="search-box pull-right">
+<form action="/search" method="get" onsubmit="check_small_search_form()">
+                    <label for="TxtSearchBox" class="font-0">test</label>
+                <input id="TxtSearchBox"
+                       placeholder="Bir arama yap"
+                       name="q" autocomplete="off"
+                       class="search-box-input" />
+                <input type="submit" class="header-search-btn" id="searchengine" value="" />
+</form>            
+<div class="search-autocomplete-container d-none" id="searchAutocomplete"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var searchURL = '/catalog/searchtermautocomplete';
+    var autoCompleteURL = '/catalog/searchtermautocomplete';
+</script>
+
+
+
+                    </div>
+                    <!-- search box  -->
+                    <!-- customer links -->
+                    <div class="col-3 col-md-3 col-sm-3 col-xl-2 headerlinks-container pl-0">
+                        
+
+<div class="customer-links-for-mobile text-md-right text-right text-sm-right">
+    <div class="customer-links">
+        <ul class="customer-links-container">
+
+            <li class="login-link">
+                    <span>
+                        <a href="javascript:;">
+                            <img alt="user-icon" src="https://www.colins.com.tr/Themes/Branch/Content/images/user-icon.svg" />
+                        </a>
+                    </span>
+                    <ul class="customer-links-sub-dropdown">
+                        {% if request.user.is_authenticated %}
+                            <li><a class="login-button" href="{% url 'account:login' %}">Hesap Bilgilerim</a></li>
+                            <li><a class="login-button" href="{% url 'account:login' %}">Adreslerim</a></li>
+                            <li><a class="login-button" href="{% url 'account:login' %}">Takip Ettiklerim</a></li>
+                            <li><a class="login-button" href="{% url 'account:login' %}">Favorilerim</a></li>
+                            <li><a class="login-button" href="{% url 'account:change_password' %}">Şifre Değiştir</a></li>
+                            <li><a class="login-button" href="{% url 'account:login' %}">Puan Sorgulama</a></li>
+                            <li><a class="login-button" href="{% url 'account:logout' %}">ÇIKIŞ</a></li>
+                        {% else %}
+                        <li><a class="login-button" href="{% url 'account:login' %}">Giriş Yap</a></li>
+                        <li><a class="register-button" href="{% url 'account:register' %}">ÜYE OL</a></li>
+                        <li><a class="order-button" href="/customer/GetOrderAsAGuest">Sipariş Takibi</a></li>
+                        {% endif %}
+                                            </ul>
+
+            </li>
+            <li class="cart-link-container">
+                <script >
+    function RefreshCartInfo() {
+        var countContainers = document.querySelectorAll(".cart-item-count");
+
+        axios.get("/ShoppingCart/GetCartInfo")
+            .then(function (res) {
+
+                for (var i = 0; i < countContainers.length; i++) {
+                    countContainers[i].innerText = "(" + res.data.Count + ")";
+                }
+
+                if (res.data.Messages.length > 0) {
+                    var messageListHtml = "";
+                    for (var i = 0; i < result.data.Messages.length; i++) {
+                        messageListHtml += result.data.Messages[i].Message + "<br />";
+                    }
+
+                    alert(messageListHtml);
+
+                    axios.post("/ShoppingCart/UpdateWaitingCustomerMessages", {
+                        params: {
+                            IdList: 'IdList=' + result.MessageIdList
+                        }
+                    }).then(function (response) {
+
+                    }).catch(function () {
+                        console.log(error);
+                    })
+                    .finally(function () {
+
+                    })
+                }
+            })
+    }
+
+    window.addEventListener("load", function () {
+        RefreshCartInfo();
+    });
+</script>
+
+
+
+<a href="/cart" class="basketLink position-relative">
+    <img src="https://www.colins.com.tr/Themes/Branch/Content/images/cart-icon.svg" alt="cart-icon" />
+    <span class="cart-item-count"></span>
+</a>
+  
+<div class="mini-cart-container">
+
+    <div class="mini-cart-responsive-header">Alışveriş Sepetim</div>
+    <div class="add-to-basket-message alert alert-success text-center d-none">Seçilen ürün sepetinize eklenmiştir.</div>
+            <div class=" mini-cart-product-list" data-scroll-status="off">
+                <table class="mini-cart-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Ürün</th>
+                            <th>Adet</th>
+                            <th>Birim Fiyat</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                            <tr>
+                                    <td class="mini-cart-picure-column">
+                                        <a class="mini-cart-picure" href="/p/slim-fit-kapusonlu-sisme-koyu-yesil-erkek-mont-17359" title="Slim Fit Kap&#252;şonlu Şişme Koyu Yeşil Erkek Mont (KOYU YEŞİL)">
+                                            <img alt="Slim Fit Kap&#252;şonlu Şişme Koyu Yeşil Erkek Mont (KOYU YEŞİL)" src="https://img-colinstr.mncdn.com/mnresize/70/-/Assets/Branch/Originals/134675_0.jpeg" title="Slim Fit Kap&#252;şonlu Şişme Koyu Yeşil Erkek Mont (KOYU YEŞİL)" />
+                                        </a>
+                                        <div class="mobile-mini-cart-responsive">
+                                            <div>
+                                                <a class="mini-cart-product-link" href="/p/slim-fit-kapusonlu-sisme-koyu-yesil-erkek-mont-17359">Slim Fit Kap&#252;şonlu Şişme Koyu Yeşil Erkek Mont (KOYU YEŞİL)</a>
+                                                    <div class="mini-cart-product-attributes">
+                                                        Beden: XS
+                                                    </div>
+                                            </div>
+                                            <div class="mobile-mini-cart-price-qty">
+                                                <div class="mini-price">279,90 TL</div>
+                                                <div class="mini-cart-qty">
+                                                    1 Adet
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                <td class="mini-cart-product-column">
+                                    <a class="mini-cart-product-link" href="/p/slim-fit-kapusonlu-sisme-koyu-yesil-erkek-mont-17359">Slim Fit Kap&#252;şonlu Şişme Koyu Yeşil Erkek Mont (KOYU YEŞİL)</a>
+                                        <div class="mini-cart-product-attributes">
+                                            Beden: XS
+                                        </div>
+                                </td>
+                                <td class="mini-cart-qty-column">
+                                    <div class="mini-cart-qty">
+                                        1 Adet
+                                    </div>
+                                </td>
+                                <td class="mini-cart-price-column">
+                                    <div class="mini-price">279,90 TL</div>
+                                </td>
+                                
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="cart-bottom">
+                <div class="mini-cart-total">ARA TOPLAM: 279,90 TL</div>
+                <div class="mini-cart-buttons">
+                        <a href="/cart" class="mini-cart-checkout-button btn-primary btn w-100">Alışveriş Çantama Git</a>
+                </div>
+            </div>
+
+</div>
+
+        <script>
+            if (typeof window.insider_object != "undefined") {
+                window.insider_object.basket = {
+                    "currency": "TRY",
+                    "total": "279.90",
+                    "line_items": [
+                            
+                        {
+                            "product": {
+                                "id": "17359",
+                                "name": "Slim Fit Kap&#252;şonlu Şişme Koyu Yeşil Erkek Mont (KOYU YEŞİL)",
+                                "taxonomy": [ 'Tüm Ürünler' ],
+                                "currency": "TRY",
+                                "unit_price": 279.90,
+                                "unit_sale_price": 279.90,
+                                "url": "https://www.colins.com.tr/p/slim-fit-kapusonlu-sisme-koyu-yesil-erkek-mont-17359",
+                                "product_image_url": ""
+                            },
+                            "quantity": 1,
+                            "subtotal": 279.90
+
+                     },
+                            
+]
+                }
+            }
+        </script>
+
+
+
+
+
+            </li>
+            <li class="language-selector">
+<div class="language-container" style="z-index: 6666;">
+    <form action="{% url 'set_language' %}" method="post" id="lang-form">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
+        <ul id="findiq" class="nav navbar-nav navbar-right language menu ">
+           
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+
+            
+            <a href="javascript:;" class="selected-lang" id="selected-qqq" style="text-transform: uppercase;">{{LANGUAGE_CODE}}</a>
+       
+            
+            <div id="showmee" class="languagelist" style="display: none; margin-top: 23px;">
+                {% for language in languages %}
+            <li>
+                <button type="submit"
+                        name="language"
+                        value="{{ language.code }}"
+                        class="{% if language.code == LANGUAGE_CODE %}selected{% endif %} lang-btn" style="background: transparent; border: none; text-transform: uppercase;">
+                    {{ language.code }}
+                </button>
+            </li>
+            {% endfor %}
+        </div>
+        
+    </ul>
+</form>
+
+
+    <!-- <a href="javascript:;" class="selected-lang"></a>
+    <div class="mobile-language-title">Dil Seçimi</div>
+    <ul class="languagelist d-none">
+            <li class="selected tr">
+                <a rel="nofollow" href="/common/SetLanguageJson?langid=2" title="TR">
+                    TR
+                </a>
+            </li>
+            <li class=" en">
+                <a rel="nofollow" href="/common/SetLanguageJson?langid=1" title="EN">
+                    EN
+                </a>
+            </li>
+            
+
+            
+    </ul>
+</div> -->
+<script>
+    document.querySelector('#findiq').addEventListener('mouseover', function() {
+        document.querySelector('#showmee').style.display = "block";
+    })
+
+    document.querySelector('#findiq').addEventListener('mouseleave', function() {
+        document.querySelector('#showmee').style.display = "none";
+    })
+
+    console.log(document.querySelector('.lang-btn').value);
+
+    // document.querySelector('#lang-form').addEventListener('submit', function(e) {
+    //     e.preventDefault();
+    // })
+</script>
+
+
+
+<script>
+    // document.querySelector(".languagelist li.selected a").setAttribute("href", "javascript:;"); /*mobil cihazlar için dil seçimi*/
+
+    const btns = document.querySelectorAll(".languagelist a");
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', selectLang);
+    });
+
+    function selectLang(e) {
+        if (!e.target.parentNode.classList.contains("selected")) {
+            axios.get(e.target.attributes.href.value)
+                .then(function (response) {
+                    location.reload();
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+                .then(function () {
+                    // always executed
+                });
+
+            return false;
+        }
+    }
+
+    // document.querySelector(".selected-lang").innerHTML = document.querySelector(".languagelist li.selected a").textContent;
+
+
+</script>
+
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="header-mobile-overlay"></div>
+
+                    </div>
+                    <!-- customer links -->
+                </div>
+            </div>
+        </header>
+
+
+        {% block content%}
+
+        {% endblock %}
+
+
+<footer class="footer-main-container">
+            
+
+
+
+<div class="footer-main-container-top p-0 pb-lg-4 px-lg-4">
+    <div class="container footer-container">
+        <div class="row">
+            <div class="col-12 footer-social-links">
+                    <a class="facebook-custom-icon mx-2 mx-lg-4 outlink track-link" rel="noopener" data-category="Bottom" data-label="Facebook-Icon" target="_blank" href="https://www.facebook.com/ColinsLook" aria-label="Facebook">
+                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/facebook-icon.png" alt="facebook" />
+                        
+                    </a>
+                    <a class="instagram-custom-icon mx-2 mx-lg-4 outlink track-link" rel="noopener" target="_blank" data-category="Bottom" data-label="Instagram-Icon" href="https://www.instagram.com/colins/" aria-label="Instagram">
+                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/instagram-icon.png" alt="instagram" />
+                        
+                    </a>
+                    <a class="twitter-custom-icon mx-2 mx-lg-4 outlink track-link" rel="noopener" target="_blank" data-category="Bottom" data-label="Twitter-Icon" href="https://twitter.com/colins" aria-label="Twitter">
+                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/twitter-icon.png" alt="twitter" />
+                        
+                    </a>
+                    <a class="youtube-custom-icon mx-2 mx-lg-4 outlink track-link" rel="noopener" target="_blank" data-category="Bottom" data-label="Youtube-Icon" href="https://www.youtube.com/user/ColinsLook" aria-label="Youtube">
+                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/youtube-icon.png" alt="youtube" />
+                        
+                    </a>
+                    <a class="pinterest-custom-icon mx-0 mx-lg-4 outlink track-link" rel="noopener" target="_blank" data-category="Bottom" data-label="Pinterest-Icon" href="https://www.pinterest.com/ColinsLook" aria-label="Pinterest">
+                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/pinterest-icon.png" alt="pinterest" />
+                        
+                    </a>
+                    <a class="blog-custom-icon mx-2 mx-lg-4 outlink track-link" rel="noopener" target="_blank" data-category="Bottom" href="{% url 'blog:blog' %}" aria-label="Blog">
+                        <img src="https://www.colins.com.tr/Themes/Branch/Content/images/blog-logo2.png" alt="" style="max-width:100%" />
+                    </a>
+            </div>
+            <div class="col-12 col-lg-4 footer-section footer-section-1 mobile-border p-0">
+
+
+    <div class="footer-category">
+        <div class="list-group-item footer-link-group-title-item" onclick="openFooterCategory(this)">
+            <h4 class="footer-link-group-title">{% trans 'KURUMSAL' %}</h4>
+            <svg class="svg-icon footer-link-group-title-down-arrow" viewBox="0 0 20 20">
+                <path fill="none" d="M8.388,10.049l4.76-4.873c0.303-0.31,0.297-0.804-0.012-1.105c-0.309-0.304-0.803-0.293-1.105,0.012L6.726,9.516c-0.303,0.31-0.296,0.805,0.012,1.105l5.433,5.307c0.152,0.148,0.35,0.223,0.547,0.223c0.203,0,0.406-0.08,0.559-0.236c0.303-0.309,0.295-0.803-0.012-1.104L8.388,10.049z"></path>
+            </svg>
+        </div>
+        <div class="mobile-footer">
+            <ul class="list-group list-group-flush footer-link-group">
+                    <li class="list-group-item">
+                        <a href="/t/hakkimizda" >
+                            {% trans 'Hakkımızda' %}
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/t/kariyer" >
+                            {% trans 'Kariyer' %} 
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="https://e-sirket.mkk.com.tr/esir/Dashboard.jsp#/sirketbilgileri/11106" >
+                            {% trans 'Bilgi Toplumu Hizmetleri' %} 
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/t/entegresistem" >
+                            {% trans 'Entegre Yönetim Sistemi Politikası' %} 
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/t/gizlilikveguvenlik" >
+                            {% trans 'Gizlilik ve Güvenlik' %} 
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/t/kvkk" >
+                            KVKK Aydınlatma Metni
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+            </div>
+            <div class="mcol-12 col-lg-4 footer-section footer-section-2 mobile-border p-0">
+
+
+    <div class="footer-category">
+        <div class="list-group-item footer-link-group-title-item" onclick="openFooterCategory(this)">
+            <h4 class="footer-link-group-title">{% trans 'M&Uuml;ŞTERİ HİZMETLERİ' %} </h4>
+            <svg class="svg-icon footer-link-group-title-down-arrow" viewBox="0 0 20 20">
+                <path fill="none" d="M8.388,10.049l4.76-4.873c0.303-0.31,0.297-0.804-0.012-1.105c-0.309-0.304-0.803-0.293-1.105,0.012L6.726,9.516c-0.303,0.31-0.296,0.805,0.012,1.105l5.433,5.307c0.152,0.148,0.35,0.223,0.547,0.223c0.203,0,0.406-0.08,0.559-0.236c0.303-0.309,0.295-0.803-0.012-1.104L8.388,10.049z"></path>
+            </svg>
+        </div>
+        <div class="mobile-footer">
+            <ul class="list-group list-group-flush footer-link-group">
+                    <li class="list-group-item">
+                        <a href="/t/iadevedegisimler" >
+                            {% trans 'İade ve Değişimler' %} 
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/t/uyelik-islemleri" >
+                            {% trans 'Üyelik İşlemleri' %} 
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/t/odemeler" >
+                            {% trans 'Ödemeler' %}  
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/t/siparis-islemleri" >
+                            {% trans 'Sipariş İşlemleri' %} 
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/t/kargo-teslimat" >
+                            {% trans 'Kargo ve Teslimat' %} 
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/loyalty" >
+                            {% trans 'Puan Sorgulama' %} 
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{% url 'contact:contact' %}" >
+                            {% trans 'Bize Ulaşın' %} 
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/t/acik_magazalar" >
+                            {% trans 'Açık Mağazalarımız' %} 
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+            </div>
+            <div class="col-12 col-lg-4 footer-section footer-section-3 mobile-border p-0">
+                
+
+<div class="newsletter-contianer">
+    <div class="form-group position-relative">
+        <form  method="POST" id="subscribeForm" onsubmit="subscribe(event)">
+        <label class="w-100">
+            {% csrf_token %}
+            <span class="newsletter-top-description mb-3 d-block">{% trans 'Kampanyalardan haberdar olmak için e-bültenimize kaydol' %} :</span>
+            <input type="email" class=" form-control" data-val="true" data-val-email="E-posta adresiniz geçersiz"
+                   data-val-required=""  name="Email"
+                   autocomplete="off" placeholder="E-mail"
+                   id="sub-input"
+                   >
+            <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+        </label>
+        <input type="submit" class="btn text-danger position-absolute border-0 newsletter-submit-btn  bultenBtn font-weight-bold"  value="KAYIT OL" disabled="">
+    </form>
+    </div>
+ 
+    <div id="pnl-newsletter-result" class="text-white mt-2 mb-3"></div>
+
+    <div id="subscribe-loading-progress" style="display: none;" class="text-white">
+        {% trans 'Lütfen bekleyiniz...' %}  
+        <img src='https://www.colins.com.tr/Content/Images/ajax_loader_small.gif' alt="Lütfen bekleyiniz..." />
+    </div>
+
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="checkbox" id="gizlilikCheckbox" class="custom-control-input" />
+            <label class="custom-control-label" for="gizlilikCheckbox"> <a href="/t/gizlilikveguvenlik" class="newsletter-text" target="_blank"> {% trans 'Gizlilik sözleşmesini' %}  </a> <span class="text-white">{% trans 'okudum, kabul ediyorum' %} </span></label>
+        </div>
+
+</div>
+   
+<script>
+    var domain = 'http://{{ request.META.HTTP_HOST }}'
+    console.log(domain)
+    let form = document.querySelector('#subscribeForm')
+    let email_value = document.getElementById('sub-input').value
+    
+    let data_obj = {
+    }
+
+    let sendRequest = (datat) => {
+        // let csrfToken = document.querySelector('[name=“csrfmiddlewaretoken”]').value
+        const csrftoken = getCookie('csrftoken');
+        fetch('http://{{ request.META.HTTP_HOST }}/tr/api/v1/subscribe/', {
+            method: 'POST',
+            headers: {
+            "Content-type": "application/json",
+            'X-CSRFToken': csrftoken,
+        },
+        body: JSON.stringify(datat)
+
+        }).then(response => response.json())
+    .then(data => {
+        console.log(data, 'salam');
+        
+        if (Array.isArray(data.email)){
+            document.getElementById('pnl-newsletter-result').innerHTML = data.email[0]
+        }
+        else{
+            document.getElementById('pnl-newsletter-result').innerHTML = ''
+        }
+        
+    })
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let form_input = document.querySelector('#sub-input').value;
+        data_obj.email = form_input
+        sendRequest(data_obj)
+        console.log(email_value);
+    })
+    // async function subscribe(e){
+    // e.preventDefault(); 
+    // let form = e.target;
+    // let postData = {'email': form.email.value};
+    // console.log('postData')
+    // let csrfToken = document.querySelector('[name=“csrfmiddlewaretoken”]').getAttributeßß('value');
+    // const csrftoken = getCookie('csrftoken');
+    // let response = await fetch(`${domain}/api/v1/subscribe`, {
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         'X-CSRFToken': csrftoken
+
+           
+    //     },
+    //     method: "POST",
+    //     body: JSON.stringify(postData)
+    // });
+
+    // data = await response.json();
+
+    // console.log(data)
+    // }
+</script>
+
+<script async src="{% static 'js/axios.min.js' %}"></script>
+
+<script>
+    var newsletterURL = '/Newsletter/SubscribeNewsletter';
+    var newsletterInputSelector = ".newsletter-contianer #NewsletterEmail";
+</script>
+
+            </div>
+        </div>
+    </div>
+    <div class="d-block d-lg-none d-md-none d-xl-none mobile-copyright p-3 p-lg-0 p-md-0 p-xl-0">
+        <p class="copyright-text-mobile">
+            Copyright &copy; {% trans "2020 COLIN'S. Tüm hakları saklıdır." %} 
+        </p>
+    </div>
+</div>
+
+<div class="footer-main-container-bottom m-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 col-lg-6 col-md-6 text-center text-lg-left text-md-left  d-none d-xl-block d-lg-block d-md-block d-sm-none mb-0">
+                        <p class="copyright-text">
+                            Copyright &copy; {% trans "2020 COLIN'S. Tüm hakları saklıdır." %} 
+                        </p>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 text-center text-lg-left text-md-right text-md-left">
+                        <a href="https://www.inveon.com" rel="noopener" target="_blank" class="inveon-logo float-lg-right">
+                            <img src="https://www.colins.com.tr/Themes/Branch/Content/images/inveon.jpg" alt="Inveon Bilgi Teknolojileri" class="inveon-logo" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="cookies-container">
+    <div class="row">
+        <div class="col-12 position-relative">
+            <p class="m-0 text-center p-2">
+                <span class="static-text cookie-text">
+                    {% trans 'Alışveriş deneyiminizi iyileştirmek için yasal düzenlemelere uygun çerezler (cookies) kullanıyoruz. Detaylı bilgiy' %}  e
+                </span>
+                <a href="/t/gizlilikveguvenlik" class="cookie-popup" target="_blank">
+                    <span class="cookie-text">
+                        {% trans 'Gizlilik ve Çerez Politikası' %}  
+                    </span>
+                </a>
+                <span class="static-text cookie-text">
+                    {% trans 'sayfamızdan erişebilirsiniz.' %}  
+                </span>
+                <a href="javascript:;" class="cookie-accept-wrapper">
+                    <span class="cookie-text cookie-accept"> &lt;</span>
+                </a>
+            </p>
+            <div class="cookie-close position-absolute">x</div>
+        </div>
+    </div>
+</div>
+<script>
+    if (getCookie('CookiePolicyCookie') != '') {
+        if (document.querySelectorAll('.cookies-container')[0] != undefined) {
+            document.querySelectorAll('.cookies-container')[0].remove()
+        }
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function cookieRequest() {
+        document.querySelectorAll('.cookies-container')[0].remove();
+        setCookie("CookiePolicyCookie", "CookiePolicyCookieVal", 360);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (getCookie('CookiePolicyCookie') != '') {
+            if (document.querySelectorAll('.cookies-container')[0] != undefined) {
+                document.querySelectorAll('.cookies-container')[0].remove()
+            }
+        }
+
+        var closeBtn = document.getElementsByClassName("cookie-close")[0];
+        var closeAcceptBtn = document.getElementsByClassName("cookie-accept")[0];
+
+        if (closeBtn != undefined) {
+            closeBtn.addEventListener("click", cookieRequest);
+            closeAcceptBtn.addEventListener("click", cookieRequest);
+        }
+
+       
+
+    });
+
+</script>
+        </footer>
+
+    </div>
+  
+    <div id="fb-root">
+</div>
+    <!--footer scripts-->
+    <script>
+    var btnName = 'Kapat';
+    var title = 'Bilgilendirme';
+</script>
+
+<script src="{% static 'js/footerScripts.js' %}"></script>
+<script src="{% static 'js/base.js' %}"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> -->
+<script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
+<script src="{% static 'js/product-filter.js' %}"></script>
+
+<script>
+
+  var current_prod = $('.product-detail-product-name').data('id')
+  similar_prods = $('.sizecolor')
+  for(var i = 0; i< similar_prods.length;i++){
+      console.log(similar_prods.eq(i).data('id'),current_prod)
+      if(similar_prods.eq(i).data('id') != current_prod){
+        similar_prods.eq(i).css('border-color', 'white')
+      }
+  }
+
+  
+  function test() {
+			
+		
+            var category = $('#categoryId').data('category')
+            console.log($(this))
+            var _filterObj={};
+            $(".filter-item-checkbox").each(function(index,ele){
+                var _filterVal=$(this).val();
+                var _filterKey=$(this).data('filter');
+                _filterObj[_filterKey]=Array.from(document.querySelectorAll('input[data-filter='+_filterKey+']:checked')).map(function(el){
+                     return el.value;
+                });
+            });
+            console.log(_filterObj);
+            // Run Ajax  
+            $.ajax({
+                url:`http://localhost/tr/api/v1/${category}/filter_data/`,
+                type : 'GET',
+                data:_filterObj,
+                dataType:'json',
+                success:function(res){
+                    console.log(res, 'sasasasa');
+                    filteredProducts = $('.productItems')
+                    $('#product-count').text(res.length)
+                    var prod_item = ''
+                    for(i of res) {
+                        console.log(i['title']);
+                        prod_item += `
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-6 col-mobile-list productItems">
+                            <div class="productbox clearfix list-item " data-discount="39,9100">
+                               <div class="product-image-container productImage">
+                                 
+                                  <div  class="favourite-button-container" >
+                                     <div id="fav-24482" class="favourite-button-unsubscribed"></div>
+                                  </div>
+                                  <a class="lazy-image product-name track-link" title="${i.title}" href="http://localhost:8000/en/product/${i.id}/" style='height:350'>
+                                  <img src="${i.image}" alt="${i.title}" class="w-100 "  data-secondary-image-src="${i.image}"  data-original="${i.image}">
+                                  </a>
+                               </div>
+                               <div class="productWrapper product-text-container" >
+                                  <a class="product-name track-link" title="${i.title}" href="${i.id}" data-id="24476">${i.title}</a>
+                                  <div class="product-price-content">
+                                     <span class="product-old-price">119,90 TL</span>
+                                     <span class="product-new-price">${i.price}</span>
+                                  </div>
+                                 
+                               </div>
+                            </div>
+                         </div>
+                         `
+                         filteredProducts.html(prod_item)
+                        
+                    }
+                    // $("#filteredProducts").html(res.data);
+                    // $(".ajaxLoader").hide();
+                    // window.reload()
+                },
+                error: function(res) {
+                    console.log(res, 'error');
+                }
+    
+            });
+        }
+</script>
+    <!--footer scripts-->
+
+
+    
+
+</body>
+</html>
